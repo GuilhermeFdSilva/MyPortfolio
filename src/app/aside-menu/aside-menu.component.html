@@ -1,0 +1,84 @@
+<aside>
+  <!-- Botão de abertura do menu -->
+  <button>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Começo do menu -->
+  <mat-sidenav mode="side" opened>
+
+    <!-- Cabeçalho -->
+    <div>
+
+      <!-- Head Informações -->
+      <article>
+
+        <!-- Imagem -->
+        <section>
+          <img src="https://i.ibb.co/st9Q9Gz/Whats-App-Image-2023-10-02-at-12-56-29.jpg" alt="Guilherme França">
+        </section>
+
+        <!-- Link home -->
+        <section>
+          <a routerLink="home">
+            <h2>Guilherme França</h2>
+          </a>
+        </section>
+      </article>
+
+      <!-- Links informações -->
+      <article>
+        <ul>
+          <li>
+            <h5>Linkedin - <a href="https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155"
+                target="_blank">Linkedin/guilherme-frança</a></h5>
+          </li>
+          <li>
+            <h5>GitHub - <a href="https://github.com/GuilhermeFdSilva" target="_blank">Github/GuilhermeFdSilva</a></h5>
+          </li>
+          <li>
+            <h5>E-mial - <a href="mailto:francaguilherme27@gmail.com" target="_blank">francaguilherme27@gmail.com</a>
+            </h5>
+          </li>
+          <li>
+            <h5>Currículo - <a href="https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing"
+                target="_blank">Currículo/GuilhermeFrança</a></h5>
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Linha divisória -->
+    <mat-divider></mat-divider>
+
+    <!-- Navegação -->
+    <div>
+      <nav>
+
+        <!-- Link para home -->
+        <button routerLink="home">
+          <mat-icon>home</mat-icon> Home
+        </button>
+
+        <!-- Paineis expansivos -->
+        <mat-expansion-panel *ngFor="let module of expandablePanels">
+
+          <!-- Cabeçalho painel expansivo -->
+          <mat-expansion-panel-header>
+
+            <!-- Titulo painel expansivo -->
+            <mat-panel-title>
+              <h4>
+                <img [src]="module.icon" height="32px" [alt]="module.title">
+                {{ module.title }}
+              </h4>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!-- Conteúdos painel expansivo -->
+          <a [href]="project.link" *ngFor="let project of module.projectLinks">{{ project.projectTitle }}</a>
+        </mat-expansion-panel>
+      </nav>
+    </div>
+  </mat-sidenav>
+</aside>
