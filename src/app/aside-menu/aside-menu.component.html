@@ -1,25 +1,27 @@
-<aside>
-  <!-- Botão de abertura do menu -->
-  <button>
-    <mat-icon>menu</mat-icon>
-  </button>
+<!-- Botão de abertura do menu -->
+<button id="button-menu" (click)="toggleMenu()">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<!-- Container menu -->
+<div id="container">
 
   <!-- Começo do menu -->
-  <mat-sidenav mode="side" opened>
+  <aside id="aside-menu">
 
     <!-- Cabeçalho -->
-    <div>
+    <div id="header-menu">
 
       <!-- Head Informações -->
-      <article>
+      <article id="presentation">
 
         <!-- Imagem -->
-        <section>
+        <section id="img-container">
           <img src="https://i.ibb.co/st9Q9Gz/Whats-App-Image-2023-10-02-at-12-56-29.jpg" alt="Guilherme França">
         </section>
 
         <!-- Link home -->
-        <section>
+        <section id="name-container">
           <a routerLink="home">
             <h2>Guilherme França</h2>
           </a>
@@ -27,22 +29,25 @@
       </article>
 
       <!-- Links informações -->
-      <article>
+      <article id="main-links">
         <ul>
           <li>
-            <h5>Linkedin - <a href="https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155"
-                target="_blank">Linkedin/guilherme-frança</a></h5>
+            <h5>Linkedin - </h5>
+            <a href="https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155"
+              target="_blank">Linkedin/guilherme-frança</a>
           </li>
           <li>
-            <h5>GitHub - <a href="https://github.com/GuilhermeFdSilva" target="_blank">Github/GuilhermeFdSilva</a></h5>
+            <h5>GitHub - </h5>
+            <a href="https://github.com/GuilhermeFdSilva" target="_blank">Github/GuilhermeFdSilva</a>
           </li>
           <li>
-            <h5>E-mial - <a href="mailto:francaguilherme27@gmail.com" target="_blank">francaguilherme27@gmail.com</a>
-            </h5>
+            <h5>E-mial - </h5>
+            <a href="mailto:francaguilherme27@gmail.com" target="_blank">francaguilherme27@gmail.com</a>
           </li>
           <li>
-            <h5>Currículo - <a href="https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing"
-                target="_blank">Currículo/GuilhermeFrança</a></h5>
+            <h5>Currículo - </h5>
+            <a href="https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing"
+              target="_blank">Currículo/GuilhermeFrança</a>
           </li>
         </ul>
       </article>
@@ -52,12 +57,13 @@
     <mat-divider></mat-divider>
 
     <!-- Navegação -->
-    <div>
+    <div id="links-menu">
       <nav>
 
         <!-- Link para home -->
         <button routerLink="home">
-          <mat-icon>home</mat-icon> Home
+          <mat-icon>home</mat-icon>
+          <p>Home</p>
         </button>
 
         <!-- Paineis expansivos -->
@@ -68,17 +74,16 @@
 
             <!-- Titulo painel expansivo -->
             <mat-panel-title>
-              <h4>
-                <img [src]="module.icon" height="32px" [alt]="module.title">
-                {{ module.title }}
-              </h4>
+              <img [src]="module.icon" [alt]="module.title">
+              <p>{{ module.title }}</p>
             </mat-panel-title>
           </mat-expansion-panel-header>
 
           <!-- Conteúdos painel expansivo -->
-          <a [href]="project.link" *ngFor="let project of module.projectLinks">{{ project.projectTitle }}</a>
+          <a [href]="project.link" *ngFor="let project of module.projectLinks"
+            target="_blank">{{ project.projectTitle }}</a>
         </mat-expansion-panel>
       </nav>
     </div>
-  </mat-sidenav>
-</aside>
+  </aside>
+</div>
