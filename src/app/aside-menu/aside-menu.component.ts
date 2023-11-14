@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./aside-menu.component.scss']
 })
 export class AsideMenuComponent {
+  visible: boolean = false;
+
   expandablePanels: any[] = [
     {
       title: "Angular",
@@ -28,4 +30,28 @@ export class AsideMenuComponent {
       ]
     }
   ]
+
+  changeOpacity(): void {
+    const container = document.getElementById('container');
+
+    if (container) {
+      container.style.opacity = this.visible ? '1' : '0';
+    }
+  }
+
+  toggleMenu(): void {
+    this.visible = !this.visible;
+
+    const aside = document.getElementsByTagName('aside');
+
+    if (aside) {
+      if (this.visible) {
+        aside[0].classList.add('translate-menu');
+        this.changeOpacity();
+      } else {
+        aside[0].classList.remove('translate-menu');
+        this.changeOpacity();
+      }
+    }
+  }
 }
