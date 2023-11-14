@@ -8,10 +8,9 @@ import { AsideMenuComponent } from './aside-menu/aside-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     // Material
     MatIconModule,
     MatDividerModule,
-    MatSidenavModule,
     MatExpansionModule
   ],
   providers: [],
