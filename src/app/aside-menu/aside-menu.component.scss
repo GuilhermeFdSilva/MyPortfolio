@@ -102,6 +102,10 @@ aside {
     }
   }
 
+  mat-divider {
+    background-color: $background-secondary-color;
+  }
+
   #links-menu {
     padding: 10px 20px 10px 20px;
 
@@ -131,7 +135,7 @@ aside {
         p {
           margin: 2px 20px 0 20px;
           font-size: $font-median-size;
-          font-weight: 600;
+          font-family: $font-family;
           transition: all ease 0.1s;
         }
 
@@ -154,6 +158,7 @@ aside {
             p {
               margin: 2px 20px 0 20px;
               font-size: $font-median-size;
+              font-family: $font-family;
               color: $font-color;
               transition: all ease 0.1s;
             }
@@ -167,6 +172,7 @@ aside {
         }
 
         a {
+          font-family: $font-family;
           color: $font-color;
           text-decoration: none;
           padding: 0 52px;
