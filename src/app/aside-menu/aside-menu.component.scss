@@ -10,7 +10,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1;
+  z-index: 2;
   transition: all ease 0.5s;
 
   &:hover {
@@ -21,7 +21,171 @@
   }
 }
 
-#container {
+aside {
+  width: fit-content;
+  height: 100%;
+  background-color: $background-primary-color;
+  position: relative;
+  top: 0px;
+  left: -600px;
+  z-index: 1;
+  transition: all linear 0.4s;
+
+  #header-menu {
+    height: 200px;
+    padding: 70px 20px 10px 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    #presentation {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      #img-container {
+        height: 80%;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid $primary-color;
+
+        img {
+          height: 100%;
+        }
+      }
+
+      #name-container {
+        a {
+          color: $font-color;
+          text-decoration: none;
+
+          h2 {
+            font-size: $font-median-size;
+            font-family: $font-family;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    #main-links {
+      width: 100%;
+      display: flex;
+      align-items: center;
+
+      ul {
+        padding: 0;
+        height: fit-content;
+
+        li {
+          list-style: none;
+          cursor: default;
+          color: $font-color;
+
+          h5 {
+            font-size: $font-min-size;
+            font-family: $font-family;
+            margin: 5px 0 0 0;
+
+          }
+
+          a {
+            font-size: $font-normal-size;
+            font-family: $font-family;
+            color: $accent-color;
+            text-decoration: none;
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  #links-menu {
+    padding: 10px 20px 10px 20px;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      button {
+        height: 48px;
+        padding: 0 24px;
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        background-color: $background-secondary-color;
+        color: $font-color;
+        cursor: pointer;
+        transition: all ease 0.1s;
+
+        mat-icon {
+          width: $font-xlarge-size;
+          height: $font-xlarge-size;
+          font-size: $font-xlarge-size;
+        }
+
+        p {
+          margin: 2px 20px 0 20px;
+          font-size: $font-median-size;
+          font-weight: 600;
+          transition: all ease 0.1s;
+        }
+
+        &:hover {
+          p {
+            color: $accent-color;
+          }
+        }
+      }
+
+      mat-expansion-panel {
+        background-color: $background-secondary-color;
+
+        mat-expansion-panel-header {
+          mat-panel-title {
+            img {
+              height: $font-xlarge-size;
+            }
+
+            p {
+              margin: 2px 20px 0 20px;
+              font-size: $font-median-size;
+              color: $font-color;
+              transition: all ease 0.1s;
+            }
+
+            &:hover {
+              p {
+                color: $accent-color;
+              }
+            }
+          }
+        }
+
+        a {
+          color: $font-color;
+          text-decoration: none;
+          padding: 0 52px;
+          transition: all ease 0.1s;
+
+          &:hover {
+            color: $accent-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+.translate-menu {
+  left: 0;
+}
+
+#transparent-container {
   height: 100vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
@@ -30,167 +194,4 @@
   left: 0px;
   opacity: 0;
   transition: all ease 0.3s;
-
-  aside {
-    width: fit-content;
-    height: 100%;
-    background-color: $background-primary-color;
-    position: relative;
-    top: 0px;
-    left: -600px;
-    transition: all linear 0.4s;
-
-    #header-menu {
-      height: 200px;
-      padding: 70px 20px 10px 20px;
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-
-      #presentation {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        #img-container {
-          height: 80%;
-          border-radius: 50%;
-          overflow: hidden;
-          border: 4px solid $primary-color;
-
-          img {
-            height: 100%;
-          }
-        }
-
-        #name-container {
-          a {
-            color: $font-color;
-            text-decoration: none;
-
-            h2 {
-              font-size: $font-median-size;
-              font-family: $font-family;
-              margin: 0;
-            }
-          }
-        }
-      }
-
-      #main-links {
-        width: 100%;
-        display: flex;
-        align-items: center;
-
-        ul {
-          padding: 0;
-          height: fit-content;
-
-          li {
-            list-style: none;
-            cursor: default;
-            color: $font-color;
-
-            h5 {
-              font-size: $font-min-size;
-              font-family: $font-family;
-              margin: 5px 0 0 0;
-
-            }
-
-            a {
-              font-size: $font-normal-size;
-              font-family: $font-family;
-              color: $accent-color;
-              text-decoration: none;
-              padding-bottom: 5px;
-            }
-          }
-        }
-      }
-    }
-
-    #links-menu {
-      padding: 10px 20px 10px 20px;
-
-      nav {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-
-        button {
-          height: 48px;
-          padding: 0 24px;
-          border: none;
-          border-radius: 4px;
-          display: flex;
-          align-items: center;
-          background-color: $background-secondary-color;
-          color: $font-color;
-          cursor: pointer;
-          transition: all ease 0.1s;
-
-          mat-icon {
-            width: $font-xlarge-size;
-            height: $font-xlarge-size;
-            font-size: $font-xlarge-size;
-          }
-
-          p {
-            margin: 2px 20px 0 20px;
-            font-size: $font-median-size;
-            font-weight: 600;
-            transition: all ease 0.1s;
-          }
-
-          &:hover {
-            p {
-              color: $accent-color;
-            }
-          }
-        }
-
-        mat-expansion-panel {
-          background-color: $background-secondary-color;
-
-          mat-expansion-panel-header {
-            mat-panel-title {
-              img {
-                height: $font-xlarge-size;
-              }
-
-              p {
-                margin: 2px 20px 0 20px;
-                font-size: $font-median-size;
-                color: $font-color;
-                transition: all ease 0.1s;
-              }
-
-              &:hover {
-                p {
-                  color: $accent-color;
-                }
-              }
-            }
-          }
-
-          a {
-            color: $font-color;
-            text-decoration: none;
-            padding: 0 52px;
-            transition: all ease 0.1s;
-
-            &:hover {
-              color: $accent-color;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .translate-menu {
-    left: 0;
-  }
 }
