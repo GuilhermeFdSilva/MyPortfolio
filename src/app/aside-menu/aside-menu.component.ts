@@ -83,4 +83,8 @@ export class AsideMenuComponent {
       this.toggleMenu()
     }
   }
+
+  goTo(link: string){
+    window.open(link, "_blank");
+  }
 }
