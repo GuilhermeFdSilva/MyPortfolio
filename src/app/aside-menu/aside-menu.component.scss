@@ -180,15 +180,26 @@ aside {
           }
         }
 
-        a {
+        div {
+          padding-left: 0 52px;
+          width: 100%;
+          cursor: pointer;
           font-family: $font-family;
           color: $font-color;
           text-decoration: none;
-          padding: 0 52px;
           transition: all ease 0.1s;
+          
+          mat-divider {
+            background-color: $background-ternary-color;
+            transition: all ease 0.1s;
+          }
 
           &:hover {
             color: $accent-color;
+
+            mat-divider {
+              background-color: $accent-color;
+            }
           }
         }
 
@@ -227,7 +238,8 @@ aside {
   }
 }
 
-@media (max-width: 980px), (min-width: 580px) {
+@media (max-width: 980px),
+(min-width: 580px) {
   aside {
     width: 80vw;
 

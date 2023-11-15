@@ -64,8 +64,10 @@
         </mat-expansion-panel-header>
 
         <!-- Conteúdos painel expansivo -->
-        <a [href]="project.link" *ngFor="let project of module.projectLinks"
-          target="_blank">{{ project.projectTitle }}</a>
+        <div *ngFor="let project of module.projectLinks" (click)="goTo(project.link)">
+          {{ project.projectTitle }}
+          <mat-divider></mat-divider>
+        </div>
       </mat-expansion-panel>
     </nav>
   </div>
