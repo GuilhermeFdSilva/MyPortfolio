@@ -8,6 +8,29 @@ import { Component } from '@angular/core';
 export class AsideMenuComponent {
   visible: boolean = false;
 
+  mainLinks: any[] = [
+    {
+      link: "https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155",
+      icon: "../assets/icons/linkedin.svg",
+      description: "Linkedin"
+    },
+    {
+      link: "https://github.com/GuilhermeFdSilva",
+      icon: "../assets/icons/gitHub.svg",
+      description: "GitHub"
+    },
+    {
+      link: "mailto:francaguilherme27@gmail.com",
+      icon: "../assets/icons/email.svg",
+      description: "Email"
+    },
+    {
+      link: "https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing",
+      icon: "../assets/icons/pdfFile.svg",
+      description: "Curriculo"
+    }
+  ]
+
   expandablePanels: any[] = [
     {
       title: "Angular",
@@ -32,24 +55,24 @@ export class AsideMenuComponent {
   ]
 
   changeOpacity(): void {
-    const container = document.getElementById('transparent-container');
+    const container = document.getElementById("transparent-container");
 
     if (container) {
-      container.style.opacity = this.visible ? '1' : '0';
+      container.style.opacity = this.visible ? "1" : "0";
     }
   }
 
   toggleMenu(): void {
     this.visible = !this.visible;
 
-    const aside = document.getElementsByTagName('aside');
+    const aside = document.getElementsByTagName("aside");
 
     if (aside) {
       if (this.visible) {
-        aside[0].classList.add('translate-menu');
+        aside[0].classList.add("translate-menu");
         this.changeOpacity();
       } else {
-        aside[0].classList.remove('translate-menu');
+        aside[0].classList.remove("translate-menu");
         this.changeOpacity();
       }
     }

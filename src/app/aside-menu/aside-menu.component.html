@@ -18,33 +18,20 @@
       </section>
 
       <!-- Link home -->
-      <section id="name-container">
-        <a routerLink="home">
-          <h2>Guilherme França</h2>
-        </a>
+      <section id="info-container">
+        <h2>Guilherme França</h2>
+        <h3>Desenvolvedor: Java, Angular, SQL, Mobile(Java)</h3>
+        <h3>Cursando: Analise e Desenvolvimento de Sistemas</h3>
       </section>
     </article>
 
     <!-- Links informações -->
     <article id="main-links">
       <ul>
-        <li>
-          <h5>Linkedin - </h5>
-          <a href="https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155"
-            target="_blank">Linkedin/guilherme-frança</a>
-        </li>
-        <li>
-          <h5>GitHub - </h5>
-          <a href="https://github.com/GuilhermeFdSilva" target="_blank">Github/GuilhermeFdSilva</a>
-        </li>
-        <li>
-          <h5>E-mial - </h5>
-          <a href="mailto:francaguilherme27@gmail.com" target="_blank">francaguilherme27@gmail.com</a>
-        </li>
-        <li>
-          <h5>Currículo - </h5>
-          <a href="https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing"
-            target="_blank">Currículo/GuilhermeFrança</a>
+        <li *ngFor="let mainLink of mainLinks">
+          <a [href]="mainLink.link" target="_blank">
+            <img [src]="mainLink.icon" [alt]="mainLink.description">
+          </a>
         </li>
       </ul>
     </article>
