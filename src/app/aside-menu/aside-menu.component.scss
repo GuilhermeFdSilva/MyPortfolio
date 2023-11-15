@@ -23,9 +23,10 @@
 
 aside {
   width: fit-content;
-  height: 100%;
+  height: fit-content;
+  min-height: 100vh;
   background-color: $background-primary-color;
-  position: relative;
+  position: fixed;
   top: 0px;
   left: -600px;
   z-index: 1;
