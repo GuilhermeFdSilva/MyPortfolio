@@ -19,9 +19,11 @@
 }
 
 aside {
-  width: fit-content;
+  width: 40vw;
+  max-width: 600px;
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
   background-color: $background-primary-color;
   position: fixed;
   top: 0px;
@@ -30,70 +32,78 @@ aside {
   transition: all linear 0.4s;
 
   #header-menu {
-    height: 200px;
-    padding: 70px 20px 10px 20px;
+    height: fit-content;
+    width: 100%;
+    padding: 70px 0 10px 0;
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex-direction: column;
 
     #presentation {
+      box-sizing: border-box;
       width: 100%;
+      padding: 0 20px;
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 20px;
 
       #img-container {
-        height: 80%;
+        width: 30%;
+        aspect-ratio: 1/1;
         border-radius: 50%;
         overflow: hidden;
         border: 4px solid $primary-color;
 
         img {
-          height: 100%;
+          width: 100%;
         }
       }
 
-      #name-container {
-        a {
-          color: $font-color;
-          text-decoration: none;
+      #info-container {
+        box-sizing: border-box;
+        padding-right: 20px;
+        color: $font-color;
 
-          h2 {
-            font-size: $font-median-size;
-            font-family: $font-family;
-            margin: 0;
-          }
+        h2 {
+          font-size: $font-median-size;
+          font-family: $font-family;
+          color: $primary-color;
+          font-weight: bold;
+          margin: 0;
+        }
+
+        h3 {
+          font-size: $font-min-size;
+          font-family: $font-family;
+          margin: 0;
         }
       }
     }
 
     #main-links {
+      box-sizing: border-box;
       width: 100%;
+      padding-right: 20px;
       display: flex;
       align-items: center;
 
       ul {
         padding: 0;
         height: fit-content;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
 
         li {
           list-style: none;
           cursor: default;
-          color: $font-color;
-
-          h5 {
-            font-size: $font-min-size;
-            font-family: $font-family;
-            margin: 5px 0 0 0;
-
-          }
 
           a {
-            font-size: $font-normal-size;
-            font-family: $font-family;
-            color: $accent-color;
-            text-decoration: none;
             padding-bottom: 5px;
+
+            img {
+              height: 30px;
+            }
           }
         }
       }
@@ -128,6 +138,7 @@ aside {
           width: $font-xlarge-size;
           height: $font-xlarge-size;
           font-size: $font-xlarge-size;
+          color: $primary-color;
         }
 
         p {
@@ -203,3 +214,5 @@ aside {
   opacity: 0;
   transition: all ease 0.3s;
 }
+
+@media (max-width: 1024px) {}
