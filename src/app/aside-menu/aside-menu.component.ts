@@ -32,7 +32,7 @@ export class AsideMenuComponent {
   ]
 
   changeOpacity(): void {
-    const container = document.getElementById('container');
+    const container = document.getElementById('transparent-container');
 
     if (container) {
       container.style.opacity = this.visible ? '1' : '0';
@@ -52,6 +52,12 @@ export class AsideMenuComponent {
         aside[0].classList.remove('translate-menu');
         this.changeOpacity();
       }
+    }
+  }
+
+  closeMenu(): void {
+    if (this.visible) {
+      this.toggleMenu()
     }
   }
 }
