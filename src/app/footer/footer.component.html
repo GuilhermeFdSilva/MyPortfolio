@@ -1,1 +1,31 @@
-<p>footer works!</p>
+<div id="container-footer">
+  <!-- Frase principal do footer -->
+  <article id="phrase">
+    <h3>Faça a vida mais "Responsiva"!</h3>
+  </article>
+
+  <!-- Divisor -->
+  <mat-divider id="divider-phrase"></mat-divider>
+
+  <!-- Container com os links por categoria(titulo) -->
+  <article id="container-links">
+
+    <!-- Cada categoria de links -->
+    <section id="links" *ngFor="let module of projectLinks; let i = index">
+
+      <!-- Divisor das categorias -->
+      <mat-divider id="vertical-divider" vertical></mat-divider>
+
+      <!-- Area dos links -->
+      <div>
+        <h4>{{ module.title }}</h4>
+
+        <!-- Links da categoria -->
+        <article *ngFor="let project of module.projectLinks">
+          {{ project.projectTitle }}
+          <mat-divider></mat-divider>
+        </article>
+      </div>
+    </section>
+  </article>
+</div>
