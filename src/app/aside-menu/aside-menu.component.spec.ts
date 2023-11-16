@@ -26,17 +26,17 @@ describe('AsideMenuComponent', () => {
   });
 
   it('deve chamar os metodos toggleMenu e changeOpacity', () => {
-    spyOn(component, 'changeOpacity');
+    spyOn(component, 'changeDisplay');
 
     component.toggleMenu();
 
     expect(component.visible).toBeTrue();
-    expect(component.changeOpacity).toHaveBeenCalled();
+    expect(component.changeDisplay).toHaveBeenCalled();
     
     component.toggleMenu();
     
     expect(component.visible).toBeFalse();
-    expect(component.changeOpacity).toHaveBeenCalled();
+    expect(component.changeDisplay).toHaveBeenCalled();
   });
 
   it('deve chamar o metodo closeMenu com "visible" true e false', () => {

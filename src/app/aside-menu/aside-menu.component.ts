@@ -54,11 +54,11 @@ export class AsideMenuComponent {
     }
   ]
 
-  changeOpacity(): void {
+  changeDisplay(): void {
     const container = document.getElementById("transparent-container");
 
     if (container) {
-      container.style.opacity = this.visible ? "1" : "0";
+      container.style.display = this.visible ? "block" : "none";
     }
   }
 
@@ -70,10 +70,10 @@ export class AsideMenuComponent {
     if (aside) {
       if (this.visible) {
         aside[0].classList.add("translate-menu");
-        this.changeOpacity();
+        this.changeDisplay();
       } else {
         aside[0].classList.remove("translate-menu");
-        this.changeOpacity();
+        this.changeDisplay();
       }
     }
   }
