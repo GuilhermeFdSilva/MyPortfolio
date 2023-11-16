@@ -63,7 +63,7 @@
             color: $accent-color;
 
             mat-divider {
-                background-color: $accent-color;
+              background-color: $accent-color;
             }
           }
         }
@@ -71,6 +71,20 @@
 
       #vertical-divider {
         background-color: $accent-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 860px) {
+  #container-footer {
+    #container-links {
+      flex-direction: column;
+      gap: 10px;
+
+      #links {
+        width: 100%;
+        justify-content: flex-start;
       }
     }
   }
