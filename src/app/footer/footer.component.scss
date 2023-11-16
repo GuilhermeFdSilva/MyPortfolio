@@ -1,0 +1,77 @@
+@import '../../assets/css-variables/variables.scss';
+
+#container-footer {
+  box-sizing: border-box;
+  width: 100vw;
+  height: fit-content;
+  padding: 0 20px;
+  background-color: $background-primary-color;
+
+  #phrase {
+    text-align: center;
+    padding: 20px 0;
+
+    h3 {
+      font-size: $font-large-size;
+      color: $background-ternary-color;
+      font-family: $font-family;
+      margin: 0;
+      cursor: default;
+    }
+  }
+
+  #divider-phrase {
+    background-color: $background-ternary-color;
+  }
+
+  #container-links {
+    padding: 20px 0;
+    display: flex;
+    align-items: stretch;
+
+    #links {
+      width: calc(33% - 40px);
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      div {
+        padding: 10px 0;
+
+        h4 {
+          color: $primary-color;
+          font-family: $font-family;
+          font-size: $font-median-size;
+          cursor: default;
+        }
+
+        article {
+          color: $font-color;
+          font-family: $font-family;
+          font-size: $font-min-size;
+          margin-bottom: 5px;
+          cursor: pointer;
+          transition: all ease 0.1s;
+
+          mat-divider {
+            background-color: $font-color;
+            transition: all ease 0.1s;
+          }
+
+          &:hover {
+            color: $accent-color;
+
+            mat-divider {
+                background-color: $accent-color;
+            }
+          }
+        }
+      }
+
+      #vertical-divider {
+        background-color: $accent-color;
+      }
+    }
+  }
+}
