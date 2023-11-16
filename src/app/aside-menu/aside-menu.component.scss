@@ -172,7 +172,10 @@ aside {
               transition: all ease 0.1s;
             }
 
-            &:hover {
+          }
+
+          &:hover {
+            mat-panel-title {
               p {
                 color: $accent-color;
               }
@@ -188,7 +191,7 @@ aside {
           color: $font-color;
           text-decoration: none;
           transition: all ease 0.1s;
-          
+
           mat-divider {
             background-color: $background-ternary-color;
             transition: all ease 0.1s;
