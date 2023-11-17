@@ -70,18 +70,38 @@
       cursor: default;
     }
   }
-
 }
 
 @media (max-width: 860px) {
   #container-footer {
     #container-links {
+      #links {
+        width: 50%;
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  #container-footer {
+    #container-links {
       flex-direction: column;
-      gap: 10px;
 
       #links {
         width: 100%;
         justify-content: flex-start;
+
+        .divider {
+          border-right: none;
+          border-bottom: 1px solid $accent-color;
+        }
+      }
+    }
+
+    #phrase {
+      h3 {
+        font-size: $font-median-size;
       }
     }
   }
