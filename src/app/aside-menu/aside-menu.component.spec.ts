@@ -52,7 +52,7 @@ describe('AsideMenuComponent', () => {
 
   it('deve chamar o metodo goTo e abrir o link em uma nova aba', () => {
     const windowSpy = spyOn(window, 'open');
-    const linkTest = 'https://google.com'
+    const linkTest = 'https://google.com';
 
     component.goTo(linkTest);
 
