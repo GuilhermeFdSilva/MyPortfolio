@@ -12,12 +12,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { BackgroundComponent } from './background/background.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AsideMenuComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,
