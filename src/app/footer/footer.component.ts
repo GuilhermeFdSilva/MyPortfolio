@@ -36,4 +36,8 @@ export class FooterComponent {
       ]
     }
   ]
+
+  goTo(link: string): void {
+    window.open(link, '_blank');
+  }
 }
