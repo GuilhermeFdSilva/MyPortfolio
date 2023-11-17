@@ -2,9 +2,9 @@
 
 #container-footer {
   box-sizing: border-box;
-  width: 100vw;
   height: fit-content;
   background-color: $background-primary-color;
+  z-index: 2;
 
   #container-links {
     padding: 20px;
