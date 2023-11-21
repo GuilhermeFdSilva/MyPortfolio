@@ -1,3 +1,43 @@
-<div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt numquam ea voluptatibus laboriosam, quaerat maiores dolorem fugit quod perspiciatis corporis illo blanditiis quasi, autem eaque possimus. Ipsam minima mollitia perferendis?</p>
+<div id="container-home">
+
+  <!-- Apresnetação pessoal -->
+  <article id="presentation">
+
+    <section id="name-info">
+      <h1>Guilherme França</h1>
+      <h2>Desenvolvedor Full Stack</h2>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section id="text-info">
+      <p>Olá meu nome é Guilherme França! Mas podem me chamar de Gui ou França. 👋🏽</p>
+      <p>Sou estudante de Analise e Desenvolvimento de Sistemas na faculdade Campus Salles. 👨🏽‍💻</p>
+      <p>Minha maior paixão é resolver problemas de lógica. 🤔</p>
+      
+      <!-- Lista de habilidades -->
+      <p class="title">Linguagens:</p>
+      <ul id="languages-list">
+        <li *ngFor="let language of languages">
+          <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        </li>
+      </ul>
+      
+      <!-- Lista de habilidades -->
+      <p class="title">Desenvolvimento Front-end:</p>
+      <ul id="languages-list">
+        <li *ngFor="let language of frontEnd">
+          <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        </li>
+      </ul>
+      
+      <!-- Lista de habilidades -->
+      <p class="title">Banco de dados:</p>
+      <ul id="languages-list">
+        <li *ngFor="let language of database">
+          <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        </li>
+      </ul>
+    </section>
+  </article>
 </div>
