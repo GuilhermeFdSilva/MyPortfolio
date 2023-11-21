@@ -6,5 +6,71 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  languages: any[] = [
+    {
+      name: 'JavaScript',
+      src: '../../assets/icons/stick-javascript.svg',
+      linkDesc: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    },
+    {
+      name: 'Java',
+      src: '../../assets/icons/stick-java.svg',
+      linkDesc: 'https://docs.oracle.com/en/java/',
+    },
+    {
+      name: 'C',
+      src: '../../assets/icons/stick-c.svg',
+      linkDesc: 'https://www.ibm.com/docs/pt/i/7.2?topic=languages-c-c',
+    },
+    {
+      name: 'Python',
+      src: '../../assets/icons/stick-python.svg',
+      linkDesc: 'https://wiki.python.org.br/PythonBrasil',
+    }
+  ]
 
+  frontEnd: any[] = [
+    {
+      name: 'HTML',
+      src: '../../assets/icons/stick-html.svg',
+      linkDesc: 'https://developer.mozilla.org/pt-BR/docs/Web/HTML',
+    },
+    {
+      name: 'CSS',
+      src: '../../assets/icons/stick-css.svg',
+      linkDesc: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS',
+    },
+    {
+      name: 'SASS',
+      src: '../../assets/icons/stick-sass.svg',
+      linkDesc: 'https://sass-lang.com/documentation/',
+    },
+    {
+      name: 'Bootstrap',
+      src: '../../assets/icons/stick-bootstrap.svg',
+      linkDesc: 'https://getbootstrap.com.br/docs/4.1/getting-started/introduction/',
+    },
+    {
+      name: 'Angular',
+      src: '../../assets/icons/stick-angular.svg',
+      linkDesc: 'https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Angular_getting_started',
+    }
+  ]
+
+  database: any[] = [
+    {
+      name: 'SQL',
+      src: '../../assets/icons/stick-mysql.svg',
+      linkDesc: 'https://dev.mysql.com/doc/',
+    },
+    {
+      name: 'MongoDB',
+      src: '../../assets/icons/stick-mongodb.svg',
+      linkDesc: 'https://www.mongodb.com/docs/',
+    }
+  ]
+
+  goTo(link: string): void {
+    window.open(link, '_blank');
+  }
 }
