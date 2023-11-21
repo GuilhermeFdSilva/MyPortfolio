@@ -22,3 +22,23 @@
     z-index: 2;
   }
 }
+
+@media (max-width: 1140px) {
+  #background {
+    #container-router {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  #background {
+    background-image: none;
+    background-color: black;
+    
+    #container-router {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
