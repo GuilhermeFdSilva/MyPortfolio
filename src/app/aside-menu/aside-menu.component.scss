@@ -10,7 +10,7 @@
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 4;
+  z-index: 5;
   transition: all ease 0.5s;
 
   &:hover {
@@ -28,7 +28,7 @@ aside {
   position: fixed;
   top: 0px;
   left: -600px;
-  z-index: 3;
+  z-index: 4;
   transition: all linear 0.4s;
 
   #header-menu {
@@ -232,6 +232,7 @@ aside {
   position: fixed;
   top: 0px;
   left: 0px;
+  z-index: 3;
   transition: all ease 0.3s;
 }
 
