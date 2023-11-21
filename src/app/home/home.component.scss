@@ -1,4 +1,61 @@
-div {
-    min-height: 100vh;
-    background-color: blue;
+@import '../../assets/css-variables/variables.scss';
+
+#container-home {
+  #presentation {
+    background-color: $background-secondary-color;
+    border-radius: 4px;
+    padding: 20px;
+
+    #name-info {
+      text-align: center;
+
+      h1 {
+        font-family: $font-family;
+        font-size: $font-xlarge-size;
+        color: $primary-color;
+        letter-spacing: 10px;
+        font-weight: bold;
+      }
+
+      h2 {
+        font-family: $font-family;
+        letter-spacing: 10px;
+        color: $accent-color;
+        margin: 0;
+      }
+    }
+
+    mat-divider {
+      background-color: $background-ternary-color;
+      margin: 20px 0;
+    }
+
+    #text-info {
+      color: $font-color;
+      font-family: $font-family;
+      font-size: $font-min-size;
+      text-align: center;
+
+      p {
+        margin: 0;
+        line-height: $font-median-size;
+      }
+
+      .title {
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+
+        li {
+            list-style: none;
+            cursor: pointer;
+        }
+      }
+    }
+  }
 }
