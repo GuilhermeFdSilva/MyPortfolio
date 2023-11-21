@@ -9,22 +9,22 @@ export class HomeComponent {
   languages: any[] = [
     {
       name: 'JavaScript',
-      src: '../../assets/icons/stick-javascript.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-javascript.svg',
       linkDesc: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
     },
     {
       name: 'Java',
-      src: '../../assets/icons/stick-java.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-java.svg',
       linkDesc: 'https://docs.oracle.com/en/java/',
     },
     {
       name: 'C',
-      src: '../../assets/icons/stick-c.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-c.svg',
       linkDesc: 'https://www.ibm.com/docs/pt/i/7.2?topic=languages-c-c',
     },
     {
       name: 'Python',
-      src: '../../assets/icons/stick-python.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-python.svg',
       linkDesc: 'https://wiki.python.org.br/PythonBrasil',
     }
   ]
@@ -32,27 +32,27 @@ export class HomeComponent {
   frontEnd: any[] = [
     {
       name: 'HTML',
-      src: '../../assets/icons/stick-html.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-html.svg',
       linkDesc: 'https://developer.mozilla.org/pt-BR/docs/Web/HTML',
     },
     {
       name: 'CSS',
-      src: '../../assets/icons/stick-css.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-css.svg',
       linkDesc: 'https://developer.mozilla.org/pt-BR/docs/Web/CSS',
     },
     {
       name: 'SASS',
-      src: '../../assets/icons/stick-sass.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-sass.svg',
       linkDesc: 'https://sass-lang.com/documentation/',
     },
     {
       name: 'Bootstrap',
-      src: '../../assets/icons/stick-bootstrap.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-bootstrap.svg',
       linkDesc: 'https://getbootstrap.com.br/docs/4.1/getting-started/introduction/',
     },
     {
       name: 'Angular',
-      src: '../../assets/icons/stick-angular.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-angular.svg',
       linkDesc: 'https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Angular_getting_started',
     }
   ]
@@ -60,12 +60,12 @@ export class HomeComponent {
   database: any[] = [
     {
       name: 'SQL',
-      src: '../../assets/icons/stick-mysql.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-mysql.svg',
       linkDesc: 'https://dev.mysql.com/doc/',
     },
     {
       name: 'MongoDB',
-      src: '../../assets/icons/stick-mongodb.svg',
+      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-mongodb.svg',
       linkDesc: 'https://www.mongodb.com/docs/',
     }
   ]

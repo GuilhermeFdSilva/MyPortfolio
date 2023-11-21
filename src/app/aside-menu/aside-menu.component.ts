@@ -11,22 +11,22 @@ export class AsideMenuComponent {
   mainLinks: any[] = [
     {
       link: "https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155",
-      icon: "../assets/icons/linkedin.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/linkedin.svg",
       description: "Linkedin"
     },
     {
       link: "https://github.com/GuilhermeFdSilva",
-      icon: "../assets/icons/gitHub.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/gitHub.svg",
       description: "GitHub"
     },
     {
       link: "mailto:francaguilherme27@gmail.com",
-      icon: "../assets/icons/email.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/email.svg",
       description: "Email"
     },
     {
       link: "https://drive.google.com/file/d/1tP8D-_z6kA6-VTLT6-dHS5_nEZ0yaQjF/view?usp=sharing",
-      icon: "../assets/icons/pdfFile.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/pdfFile.svg",
       description: "Curriculo"
     }
   ]
@@ -34,7 +34,7 @@ export class AsideMenuComponent {
   expandablePanels: any[] = [
     {
       title: "Angular",
-      icon: "../../assets/icons/angular.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/angular.svg",
       projectLinks: [
         {
           projectTitle: "Projeto final StartTech",
@@ -44,7 +44,7 @@ export class AsideMenuComponent {
     },
     {
       title: "Java",
-      icon: "../../assets/icons/java.svg",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/java.svg",
       projectLinks: [
         {
           projectTitle: "Projeto projetado",
