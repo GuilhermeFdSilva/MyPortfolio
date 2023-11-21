@@ -7,7 +7,8 @@
     <section id="links" *ngFor="let module of projectLinks; let i = index">
 
       <!-- Area dos links -->
-      <div [ngClass]="i < (projectLinks.length - 1) ? 'divider' : ''">
+      <div
+        [ngClass]="i == projectLinks.length -1 && i != 0 && i!= 3 ? 'divider' : (i != 0 && i != 3 ? 'divider divider-vertical' : 'divider-vertical')">
         <h4>{{ module.title }}</h4>
 
         <!-- Links da categoria -->
@@ -19,8 +20,21 @@
     </section>
   </article>
 
-  <!-- Frase principal do footer -->
-  <article id="phrase">
-    <h3>Faça a vida mais "Responsiva"!</h3>
+  <!-- Container dos links pessoais -->
+  <article id="container-social-links">
+
+    <!-- Frase de "cirado por" -->
+    <section id="created-by">
+      <h3>Criado por Guilherme França</h3>
+    </section>
+
+    <!-- Lista das redes sociais -->
+    <section id="social-links">
+      <ul>
+        <li *ngFor="let mainLink of mainLinks">
+          <img [src]="mainLink.icon" [alt]="mainLink.description" (click)="goTo(mainLink.link)">
+        </li>
+      </ul>
+    </section>
   </article>
 </div>
