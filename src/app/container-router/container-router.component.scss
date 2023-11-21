@@ -36,6 +36,11 @@
   #background {
     background-image: none;
     background-color: black;
+
+    &::before {
+      height: 40px;
+      z-index: 3;
+    }
     
     #container-router {
       width: 100%;
