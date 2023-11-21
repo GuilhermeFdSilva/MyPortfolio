@@ -13,15 +13,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { BackgroundComponent } from './background/background.component';
+import { ContainerRouterComponent } from './container-router/container-router.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ContainerRouterComponent,
     AsideMenuComponent,
     FooterComponent,
-    HomeComponent,
-    BackgroundComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
