@@ -3,6 +3,7 @@
   <!-- Apresnetação pessoal -->
   <article id="presentation">
 
+    <!-- Cabeçalho -->
     <section id="name-info">
       <h1>Guilherme França</h1>
       <h2>Desenvolvedor Full Stack</h2>
@@ -14,30 +15,65 @@
       <p>Olá meu nome é Guilherme França! Mas podem me chamar de Gui ou França. 👋🏽</p>
       <p>Sou estudante de Analise e Desenvolvimento de Sistemas na faculdade Campus Salles. 👨🏽‍💻</p>
       <p>Minha maior paixão é resolver problemas de lógica. 🤔</p>
-      
-      <!-- Lista de habilidades -->
+
+      <!-- Lista de linguagens de programação -->
       <p class="title">Linguagens:</p>
       <ul id="languages-list">
         <li *ngFor="let language of languages">
           <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
         </li>
       </ul>
-      
-      <!-- Lista de habilidades -->
+
+      <!-- Lista de ferramentas de front -->
       <p class="title">Desenvolvimento Front-end:</p>
       <ul id="languages-list">
         <li *ngFor="let language of frontEnd">
           <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
         </li>
       </ul>
-      
-      <!-- Lista de habilidades -->
+
+      <!-- Lista de bancos de dados -->
       <p class="title">Banco de dados:</p>
       <ul id="languages-list">
         <li *ngFor="let language of database">
           <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
         </li>
       </ul>
+    </section>
+  </article>
+
+  <!-- Categorias explicadas -->
+  <article id="categories">
+
+    <!-- Cabeçalho -->
+    <section id="categories-desc">
+      <h2>Linguagens de programação</h2>
+      <h3>e ferramentas</h3>
+    </section>
+
+    <mat-divider></mat-divider>
+
+    <section id="categories-itens">
+
+      <!-- Paineis expansivos -->
+      <mat-expansion-panel *ngFor="let category of categories">
+
+        <!-- Cabeçalho painel expansivo -->
+        <mat-expansion-panel-header>
+
+          <!-- Titulo painel expansivo -->
+          <mat-panel-title>
+            <img [src]="category.icon" [alt]="category.title">
+            <p>{{ category.title }}</p>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <!-- Conteúdos painel expansivo -->
+        <div>
+          <p>{{ category.desc }}</p>
+          <button [routerLink]="category.route">Meus projetos com {{ category.title }}</button>
+        </div>
+      </mat-expansion-panel>
     </section>
   </article>
 </div>
