@@ -70,6 +70,21 @@ export class HomeComponent {
     }
   ]
 
+  categories: any[] = [
+    {
+      title: "Angular",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/angular.svg",
+      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat praesentium aut quasi quidem saepe vel voluptate maxime autem et corporis est, facere dignissimos numquam nesciunt sunt nisi temporibus cumque aperiam!",
+      router: "home"
+    },
+    {
+      title: "Java",
+      icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/java.svg",
+      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat praesentium aut quasi quidem saepe vel voluptate maxime autem et corporis est, facere dignissimos numquam nesciunt sunt nisi temporibus cumque aperiam!",
+      router: "home"
+    }
+  ]
+
   goTo(link: string): void {
     window.open(link, '_blank');
   }
