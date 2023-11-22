@@ -35,22 +35,12 @@ export class AsideMenuComponent {
     {
       title: "Angular",
       icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/angular.svg",
-      projectLinks: [
-        {
-          projectTitle: "Projeto final StartTech",
-          link: "https://google.com"
-        }
-      ]
+      route: "home"
     },
     {
       title: "Java",
       icon: "https://guilhermefdsilva.github.io/icons-myPortfolio/java.svg",
-      projectLinks: [
-        {
-          projectTitle: "Projeto projetado",
-          link: "https://google.com"
-        }
-      ]
+      route: "home"
     }
   ]
 

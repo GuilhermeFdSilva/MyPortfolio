@@ -45,30 +45,32 @@
     <nav>
 
       <!-- Link para home -->
-      <button routerLink="home">
+      <button routerLink="home" (click)="closeMenu()">
         <mat-icon>home</mat-icon>
         <p>Home</p>
       </button>
 
-      <!-- Paineis expansivos -->
-      <mat-expansion-panel *ngFor="let module of expandablePanels">
+      <article class="divider-categori">
+        <p>Linguagens</p>
+        <mat-divider></mat-divider>
+      </article>
 
-        <!-- Cabeçalho painel expansivo -->
-        <mat-expansion-panel-header>
+      <!-- Linkis por linguagem -->
+      <button *ngFor="let module of expandablePanels" [routerLink]="module.route" (click)="closeMenu()">
+        <img [src]="module.icon" [alt]="module.title">
+        <p>{{ module.title }}</p>
+      </button>
+      
+      <article class="divider-categori">
+        <p>Trabalhos</p>
+        <mat-divider></mat-divider>
+      </article>
 
-          <!-- Titulo painel expansivo -->
-          <mat-panel-title>
-            <img [src]="module.icon" [alt]="module.title">
-            <p>{{ module.title }}</p>
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-
-        <!-- Conteúdos painel expansivo -->
-        <div *ngFor="let project of module.projectLinks" (click)="goTo(project.link)">
-          {{ project.projectTitle }}
-          <mat-divider></mat-divider>
-        </div>
-      </mat-expansion-panel>
+      <!-- Linkis por categoria (Projeto pessoal, trabalhos, projetos cursos) -->
+      <button *ngFor="let module of expandablePanels" [routerLink]="module.route" (click)="closeMenu()">
+        <img [src]="module.icon" [alt]="module.title">
+        <p>{{ module.title }}</p>
+      </button>
     </nav>
   </div>
 </aside>
