@@ -1,3 +1,5 @@
+@import '../../assets/css-variables/variables.scss';
+
 #background {
   position: relative;
   background-image: url('https://i.ibb.co/mXgW9Hn/fundo.jpg');
@@ -17,7 +19,7 @@
 
   #container-router {
     max-width: 1140px;
-    padding: 34px 0;
+    padding: 68px 0;
     position: relative;
     margin: auto;
     z-index: 2;
@@ -35,7 +37,7 @@
 @media (max-width: 500px) {
   #background {
     background-image: none;
-    background-color: black;
+    background-color: $background-secondary-color;
 
     &::before {
       height: 40px;
@@ -44,7 +46,7 @@
     
     #container-router {
       width: 100%;
-      padding: 0;
+      padding: 68px 0;
     }
   }
 }
