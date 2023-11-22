@@ -51,22 +51,11 @@
       </button>
 
       <article class="divider-category">
-        <p>Linguagens</p>
+        <p>Projetos</p>
         <mat-divider></mat-divider>
       </article>
 
       <!-- Linkis por linguagem -->
-      <button *ngFor="let module of expandablePanels" [routerLink]="module.route" (click)="closeMenu()">
-        <img [src]="module.icon" [alt]="module.title">
-        <p>{{ module.title }}</p>
-      </button>
-      
-      <article class="divider-category">
-        <p>Trabalhos</p>
-        <mat-divider></mat-divider>
-      </article>
-
-      <!-- Linkis por categoria (Projeto pessoal, trabalhos, projetos cursos) -->
       <button *ngFor="let module of expandablePanels" [routerLink]="module.route" (click)="closeMenu()">
         <img [src]="module.icon" [alt]="module.title">
         <p>{{ module.title }}</p>
