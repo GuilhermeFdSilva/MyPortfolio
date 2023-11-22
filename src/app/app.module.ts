@@ -14,6 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContainerRouterComponent } from './container-router/container-router.co
     ContainerRouterComponent,
     AsideMenuComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
