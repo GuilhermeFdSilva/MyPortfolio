@@ -1,3 +1,4 @@
+import { LanguagesService } from './../../assets/services/languages/languages.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -84,6 +85,8 @@ export class HomeComponent {
       router: "home"
     }
   ]
+
+  constructor (private languagesService: LanguagesService) { }
 
   goTo(link: string): void {
     window.open(link, '_blank');
