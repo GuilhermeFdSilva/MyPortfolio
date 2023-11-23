@@ -1,40 +1,45 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class LanguagesService {
   private languages: Array<Language> = [];
+
+  private oservableData = new Subject<void>();
   
   constructor(private httpClient: HttpClient) {
     this.languages = [];
-    this.getLanguages().subscribe((response) => {
-      this.languages = response;
-      console.log(this.languages);
+    this.getHTTPObservable().subscribe((response) => {
+      this.languages = response.map((object) => Object.assign(new Language, object));
+      this.oservableData.next();
     });
   }
 
-  private getLanguages(): Observable<any> {
-    return this.httpClient.get<any>("https://my-json-server.typicode.com/GuilhermeFdSilva/read-db-myPortfolio/languages");
+  get getLanguages(): Array<Language> {
+    return this.languages;
+  }
+
+  get getObservableData(): Observable<void> {
+    return this.oservableData.asObservable();
+  }
+
+  private getHTTPObservable(): Observable<Array<Language>> {
+    return this.httpClient.get<Array<Language>>("https://my-json-server.typicode.com/GuilhermeFdSilva/read-db-myPortfolio/languages");
   }
 }
 
-class Language {
+export class Language {
   private name: string;
   private desc: string;
+  private type: string;
   private icon: string;
   private stick: string;
   private link: string;
 
-  constructor(name: string, desc: string, icon: string, stick: string, link: string) {
-    this.name = name;
-    this.desc = desc;
-    this.icon = icon;
-    this.stick = stick;
-    this.link = link;
-  }
+  constructor() { }
 
   get getName(): string {
     return this.name;
@@ -50,6 +55,14 @@ class Language {
 
   set setDesc(value: string) {
     this.desc = value;
+  }
+
+  get getType(): string {
+    return this.type;
+  }
+
+  set setType(value: string) {
+    this.type = value;
   }
 
   get getIcon(): string {
