@@ -56,9 +56,9 @@
       </article>
 
       <!-- Linkis por linguagem -->
-      <button *ngFor="let module of expandablePanels" [routerLink]="module.route" (click)="closeMenu()">
-        <img [src]="module.icon" [alt]="module.title">
-        <p>{{ module.title }}</p>
+      <button *ngFor="let module of mainCategories" [routerLink]="module.getName" (click)="closeMenu()">
+        <img [src]="module.getIcon" [alt]="module.getName">
+        <p>{{ module.getName }}</p>
       </button>
     </nav>
   </div>
