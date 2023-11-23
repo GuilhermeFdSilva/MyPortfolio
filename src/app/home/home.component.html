@@ -18,7 +18,7 @@
     <p class="title">Linguagens:</p>
     <ul id="languages-list">
       <li *ngFor="let language of languages">
-        <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
       </li>
     </ul>
 
@@ -26,7 +26,7 @@
     <p class="title">Desenvolvimento Front-end:</p>
     <ul id="languages-list">
       <li *ngFor="let language of frontEnd">
-        <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
       </li>
     </ul>
 
@@ -34,7 +34,7 @@
     <p class="title">Banco de dados:</p>
     <ul id="languages-list">
       <li *ngFor="let language of database">
-        <img [src]="language.src" [alt]="language.name" (click)="goTo(language.linkDesc)">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
       </li>
     </ul>
   </section>
@@ -45,8 +45,8 @@
 
   <!-- Cabeçalho -->
   <section id="categories-desc">
-    <h2>Linguagens de programação</h2>
-    <h3>e ferramentas</h3>
+    <h2>Principais</h2>
+    <h3>favoritas 😳</h3>
   </section>
 
   <mat-divider></mat-divider>
@@ -54,22 +54,22 @@
   <section id="categories-itens">
 
     <!-- Paineis expansivos -->
-    <mat-expansion-panel *ngFor="let category of categories">
+    <mat-expansion-panel *ngFor="let category of mainCategories">
 
       <!-- Cabeçalho painel expansivo -->
       <mat-expansion-panel-header>
 
         <!-- Titulo painel expansivo -->
         <mat-panel-title>
-          <img [src]="category.icon" [alt]="category.title">
-          <p>{{ category.title }}</p>
+          <img [src]="category.getIcon" [alt]="category.getName">
+          <p>{{ category.getName }}</p>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <!-- Conteúdos painel expansivo -->
       <div>
-        <p>{{ category.desc }}</p>
-        <button [routerLink]="category.route">Meus projetos com {{ category.title }}</button>
+        <p>{{ category.getDesc }}</p>
+        <button [routerLink]="category.getName">Meus projetos com {{ category.getName }}</button>
       </div>
     </mat-expansion-panel>
   </section>
