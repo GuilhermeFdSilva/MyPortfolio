@@ -11,10 +11,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+
+// Providers
+import { LanguagesService } from 'src/assets/services/languages/languages.service';
+
+// Componentes
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,12 +37,13 @@ import { ProjectsComponent } from './projects/projects.component';
     BrowserAnimationsModule,
     NgFor,
     NgIf,
+    HttpClientModule,
     // Material
     MatIconModule,
     MatDividerModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [LanguagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
