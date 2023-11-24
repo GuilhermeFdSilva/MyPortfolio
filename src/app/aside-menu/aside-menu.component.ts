@@ -36,7 +36,7 @@ export class AsideMenuComponent {
 
   ngOnInit(): void {
     this.languagesService.getObservableData.subscribe(() => {
-      this.mainCategories = this.languagesService.getLanguages.filter((language) => (language.getName === 'Angular') || (language.getName === 'Java'));
+      this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
     });
   }
 

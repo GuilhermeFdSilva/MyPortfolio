@@ -19,7 +19,7 @@ export class HomeComponent {
       this.languages = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
       this.frontEnd = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
       this.database = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
-      this.mainCategories = this.languagesService.getLanguages.filter((language) => (language.getName === 'Angular') || (language.getName === 'Java'));
+      this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
     });
   }
 
