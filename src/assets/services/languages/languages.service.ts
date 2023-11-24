@@ -38,6 +38,7 @@ export class Language {
   private icon: string;
   private stick: string;
   private link: string;
+  private main: boolean;
 
   constructor() { }
 
@@ -45,47 +46,27 @@ export class Language {
     return this.name;
   }
 
-  set setName(value: string) {
-    this.name = value;
-  }
-
   get getDesc(): string {
     return this.desc;
-  }
-
-  set setDesc(value: string) {
-    this.desc = value;
   }
 
   get getType(): string {
     return this.type;
   }
 
-  set setType(value: string) {
-    this.type = value;
-  }
-
   get getIcon(): string {
     return this.icon;
-  }
-
-  set setIcon(value: string) {
-    this.icon = value;
   }
 
   get getStick(): string {
     return this.stick;
   }
 
-  set setStick(value: string) {
-    this.stick = value;
-  }
-
   get getLink(): string {
     return this.link;
   }
 
-  set setLink(value: string) {
-    this.link = value;
+  get isMian(): boolean {
+    return this.main;
   }
 }
