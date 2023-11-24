@@ -8,13 +8,13 @@ import { Observable, Subject } from 'rxjs';
 export class LanguagesService {
   private languages: Array<Language> = [];
 
-  private oservableData = new Subject<void>();
+  private observableData = new Subject<void>();
   
   constructor(private httpClient: HttpClient) {
     this.languages = [];
     this.getHTTPObservable().subscribe((response) => {
       this.languages = response.map((object) => Object.assign(new Language, object));
-      this.oservableData.next();
+      this.observableData.next();
     });
   }
 
@@ -23,7 +23,7 @@ export class LanguagesService {
   }
 
   get getObservableData(): Observable<void> {
-    return this.oservableData.asObservable();
+    return this.observableData.asObservable();
   }
 
   private getHTTPObservable(): Observable<Array<Language>> {
