@@ -54,22 +54,22 @@
   <section id="categories-itens">
 
     <!-- Paineis expansivos -->
-    <mat-expansion-panel *ngFor="let category of mainCategories">
+    <mat-expansion-panel *ngFor="let module of mainCategories">
 
       <!-- Cabeçalho painel expansivo -->
       <mat-expansion-panel-header>
 
         <!-- Titulo painel expansivo -->
         <mat-panel-title>
-          <img [src]="category.getIcon" [alt]="category.getName">
-          <p>{{ category.getName }}</p>
+          <img [src]="module.getIcon" [alt]="module.getName">
+          <p>{{ module.getName }}</p>
         </mat-panel-title>
       </mat-expansion-panel-header>
 
       <!-- Conteúdos painel expansivo -->
       <div>
-        <p>{{ category.getDesc }}</p>
-        <button [routerLink]="category.getName">Meus projetos com {{ category.getName }}</button>
+        <p>{{ module.getDesc }}</p>
+        <button (click)="goToComponent(module.getName)">Meus projetos com {{ module.getName }}</button>
       </div>
     </mat-expansion-panel>
   </section>

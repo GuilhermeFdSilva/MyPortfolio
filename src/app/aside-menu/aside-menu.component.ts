@@ -1,5 +1,6 @@
 import { Language, LanguagesService } from 'src/assets/services/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aside-menu',
@@ -32,12 +33,13 @@ export class AsideMenuComponent {
   ];
   mainCategories: Array<Language> = [];
 
-  constructor(private languagesService: LanguagesService) { }
+  constructor(private languagesService: LanguagesService, private router: Router) { }
 
   ngOnInit(): void {
     this.languagesService.getObservableData.subscribe(() => {
       this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
     });
+    this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
   }
 
   changeDisplay(): void {
@@ -72,5 +74,9 @@ export class AsideMenuComponent {
 
   goTo(link: string){
     window.open(link, "_blank");
+  }
+
+  goToComponent(route: string) {
+    this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }

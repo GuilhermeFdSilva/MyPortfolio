@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LanguagesService, Language } from './../../assets/services/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,7 +13,7 @@ export class HomeComponent {
   database: Array<Language> = [];
   mainCategories: Array<Language> = []
 
-  constructor(private languagesService: LanguagesService) { }
+  constructor(private languagesService: LanguagesService, private router: Router) { }
 
   ngOnInit(): void {
     this.languagesService.getObservableData.subscribe(() => {
@@ -21,9 +22,18 @@ export class HomeComponent {
       this.database = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
       this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
     });
+
+    this.languages = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
+    this.frontEnd = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
+    this.database = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
+    this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
   }
 
   goTo(link: string): void {
     window.open(link, '_blank');
+  }
+
+  goToComponent(route: string) {
+    this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }

@@ -56,7 +56,7 @@
       </article>
 
       <!-- Linkis por linguagem -->
-      <button *ngFor="let module of mainCategories" [routerLink]="module.getName" (click)="closeMenu()">
+      <button *ngFor="let module of mainCategories" (click)="[goToComponent(module.getName), closeMenu()]">
         <img [src]="module.getIcon" [alt]="module.getName">
         <p>{{ module.getName }}</p>
       </button>
