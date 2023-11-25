@@ -27,7 +27,7 @@ export class LanguagesService {
   }
 
   private getHTTPObservable(): Observable<Array<Language>> {
-    return this.httpClient.get<Array<Language>>("https://my-json-server.typicode.com/GuilhermeFdSilva/read-db-myPortfolio/languages");
+    return this.httpClient.get<Array<Language>>("https://json-server-my-portfolio.vercel.app/languages");
   }
 }
 
