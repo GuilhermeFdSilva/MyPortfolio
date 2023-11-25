@@ -27,7 +27,7 @@ export class ProjectsService {
   }
 
   private getHTTPObservable(): Observable<Array<Project>> {
-    return this.httpClient.get<Array<Project>>("https://my-json-server.typicode.com/GuilhermeFdSilva/read-db-myPortfolio/projects");
+    return this.httpClient.get<Array<Project>>("https://json-server-my-portfolio.vercel.app/projects");
   }
 }
 
@@ -37,6 +37,8 @@ export class Project {
   private desc: string;
   private mainLanguage: string;
   private tools: Array<string>;
+  private linkGH: string;
+  private linkPG: string;
 
   constructor() { }
 
@@ -58,5 +60,13 @@ export class Project {
 
   get getTools(): Array<string> {
     return this.tools;
+  }
+
+  get getLinkGH(): string {
+    return this.linkGH;
+  }
+
+  get getLinkPG(): string {
+    return this.linkPG;
   }
 }
