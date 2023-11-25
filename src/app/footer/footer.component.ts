@@ -39,11 +39,9 @@ export class FooterComponent {
   ngOnInit(): void {
     this.languagesService.getObservableData.subscribe(() => {
       this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
-      console.log(this.languages);
     });
     this.projectsService.getObservableData.subscribe(() => {
       this.projects = this.projectsService.getProjects;
-      console.log(this.projects);
     });
 
     this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
