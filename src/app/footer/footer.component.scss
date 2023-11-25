@@ -30,7 +30,7 @@
           color: $primary-color;
           font-family: $font-family;
           font-size: $font-median-size;
-          cursor: default;
+          cursor: pointer;
         }
 
         article {
@@ -40,6 +40,10 @@
           margin-bottom: 10px;
           cursor: pointer;
           transition: all ease 0.1s;
+
+          div {
+            padding: 0;
+          }
 
           mat-divider {
             background-color: $font-color;

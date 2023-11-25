@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Project, ProjectsService } from './../../assets/services/projects/projects.service';
+import { Language, LanguagesService } from 'src/assets/services/languages/languages.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -6,35 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  projectLinks: any[] = [
-    {
-      title: "Angular",
-      projectLinks: [
-        {
-          projectTitle: "Projeto final StartTech",
-          link: "https://google.com"
-        },
-        {
-          projectTitle: "Projeto final StartTech",
-          link: "https://google.com"
-        },
-        {
-          projectTitle: "Projeto final StartTech",
-          link: "https://google.com"
-        }
-      ]
-    },
-    {
-      title: "Java",
-      projectLinks: [
-        {
-          projectTitle: "Projeto projetado",
-          link: "https://google.com"
-        }
-      ]
-    }
-  ];
-
   mainLinks: any[] = [
     {
       link: "https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155",
@@ -57,8 +31,30 @@ export class FooterComponent {
       description: "Curriculo"
     }
   ];
+  languages: Array<Language> = [];
+  projects:   Array<Project> = [];
+
+  constructor(private languagesService: LanguagesService, private projectsService: ProjectsService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.languagesService.getObservableData.subscribe(() => {
+      this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
+      console.log(this.languages);
+    });
+    this.projectsService.getObservableData.subscribe(() => {
+      this.projects = this.projectsService.getProjects;
+      console.log(this.projects);
+    });
+
+    this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
+    this.projects = this.projectsService.getProjects;
+  }
 
   goTo(link: string): void {
     window.open(link, '_blank');
+  }
+  
+  goToComponent(route: string) {
+    this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }
