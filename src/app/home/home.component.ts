@@ -16,6 +16,8 @@ export class HomeComponent {
   constructor(private languagesService: LanguagesService, private router: Router) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
     this.languagesService.getObservableData.subscribe(() => {
       this.languages = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
       this.frontEnd = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
