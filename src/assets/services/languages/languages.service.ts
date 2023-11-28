@@ -69,4 +69,9 @@ export class Language {
   get isMian(): boolean {
     return this.main;
   }
+
+  noName(): Language {
+    this.name = '';
+    return this;
+  }
 }
