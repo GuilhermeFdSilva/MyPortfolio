@@ -1,6 +1,6 @@
 @import '../../assets/css-variables/variables.scss';
 
-.title {
+#title {
   background-color: $background-secondary-color;
   border: 1px solid $background-ternary-color;
   border-radius: 4px;
@@ -19,6 +19,70 @@
         color: $font-color;
         font-family: $font-family;
         font-size: $font-min-size;
+        line-height: $font-large-size;
+    }
+  }
+
+  mat-divider {
+    background-color: $background-ternary-color;
+    margin-bottom: 12px;
+  }
+
+  #filters {
+    padding: 0 20px;
+
+    div {
+      h3 {
+        color: $font-color;
+        font-family: $font-family;
+        font-size: $font-normal-size;
+        margin: 0;
+      }
+
+      ul {
+        margin: 10px 0;
+        padding-left: 20px;
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+          list-style: none;
+          height: 28px;
+          margin: 0 10px 10px 0;
+          position: relative;
+          cursor: pointer;
+
+          mat-icon {
+            height: $font-normal-size;
+            width: $font-normal-size;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+            font-size: $font-normal-size;
+            font-weight: bolder;
+            color: $secondary-color;
+            transition: all ease 0.3s;
+          }
+          
+          .disabled {
+            filter: grayscale(100%);
+            cursor: default;
+          }
+
+          &:hover {
+            mat-icon {
+              color: $primary-color;
+            }
+          }
+        }
+
+        .main {
+          img {
+            box-shadow: 0px 0px 7px 3px rgba(255,0,0,0.75);
+          }
+        }
+      }
     }
   }
 }

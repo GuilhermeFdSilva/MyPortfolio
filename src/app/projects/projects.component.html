@@ -1,21 +1,45 @@
-<!-- Titulo ver todos os projetos -->
-<article class="title" *ngIf="module === ''">
-  <section class="text-title">
+<article id="title">
+
+  <!-- Titulo ver todos os projetos -->
+  <section class="text-title" *ngIf="mainLanguage.getName === undefined">
     <h2>Todos os projetos</h2>
     <p>
-      Aqui você vai encontrar todos os projetos que já fiz, você pode filtrar de acordo com as ferramentas
+      Aqui você vai encontrar todos os projetos que já fiz em todas as linguagens que conheço, você pode filtrar de
+      acordo com as ferramentas
       utilizadas.
     </p>
   </section>
 
+  <!-- Titulo projeto por modulo -->
+  <section class="text-title" *ngIf="mainLanguage.getName !== undefined">
+    <h2>{{ mainLanguage.getName }}</h2>
+    <p>{{ mainLanguage.getDesc }}</p>
+  </section>
+
   <mat-divider></mat-divider>
 
-  <section>
-    <img *ngFor="let tool of tools" [src]="tool.src" [alt]="tool.name" (click)="filter(tool.name)">
+  <!-- Filtros aplicados -->
+  <section id="filters">
+    <div>
+      <h3>Filtrar por:</h3>
+      <ul>
+        <div *ngFor="let filter of languagesFilter" (click)="removeFilter(filter.language)">
+          <li class="selected-filter" *ngIf="filter.active" [ngClass]="filter.language.getName === mainLanguage.getName ? 'main' : ''">
+            <img [src]="filter.language.getStick" [alt]="filter.language.getName">
+            <mat-icon>close</mat-icon>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Lista de filtros disponiveis -->
+    <div>
+      <h3>Filtros:</h3>
+      <ul>
+        <li *ngFor="let filter of languagesFilter">
+          <img [ngClass]="filter.match ? '' : 'disabled'" [src]="filter.language.getStick" [alt]="filter.language.getName">
+        </li>
+      </ul>
+    </div>
   </section>
-</article>
-
-<!-- Titulo projeto por modulo -->
-<article class="title" *ngIf="module !== ''">
-
 </article>
