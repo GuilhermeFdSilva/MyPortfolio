@@ -1,5 +1,8 @@
+import { Project, ProjectsService } from './../../assets/services/projects/projects.service';
+import { LanguagesService } from './../../assets/services/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Language } from 'src/assets/services/languages/languages.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,89 +10,104 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent {
-  constructor (private activatedRoute: ActivatedRoute) {}
+  languages: Array<Language> = [];
+  projects: Array<Project> = [];
+  mainLanguage: Language = new Language().noName();
+  languagesFilter: Array<any> = [];
 
-  module: string;
-
-  tools: any[] = [
-    {
-      name: 'JavaScript',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-javascript.svg',
-    },
-    {
-      name: 'Java',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-java.svg',
-    },
-    {
-      name: 'C',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-c.svg',
-    },
-    {
-      name: 'Python',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-python.svg',
-    },
-    {
-      name: 'HTML',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-html.svg',
-    },
-    {
-      name: 'CSS',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-css.svg',
-    },
-    {
-      name: 'SASS',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-sass.svg',
-    },
-    {
-      name: 'Bootstrap',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-bootstrap.svg',
-    },
-    {
-      name: 'Angular',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-angular.svg',
-    },
-    {
-      name: 'SQL',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-mysql.svg',
-    },
-    {
-      name: 'MongoDB',
-      src: 'https://guilhermefdsilva.github.io/icons-myPortfolio/stick-mongodb.svg',
-    }
-  ]
-
-  mock: any = {
-    title: "Angular",
-    desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat praesentium aut quasi quidem saepe vel voluptate maxime autem et corporis est, facere dignissimos numquam nesciunt sunt nisi temporibus cumque aperiam!",
-    projects: [
-      {
-        img: "",
-        readme: "",
-        tools: [],
-        link: ""
-      },
-      {
-        img: "",
-        readme: "",
-        tools: [],
-        link: ""
-      },
-      {
-        img: "",
-        readme: "",
-        tools: [],
-        link: ""
-      },
-    ]
-  }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private languagesService: LanguagesService, private projectsService: ProjectsService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
     this.activatedRoute.paramMap.subscribe((param) => {
-      this.module = param.get('module') ?? '';
+      const name = param.get('module') ?? '';
+
+      this.initVariables(name);
+      this.languagesService.getObservableData.subscribe(() => {
+        this.projectsService.getObservableData.subscribe(() => {
+          this.initVariables(name);
+          this.findMatches();
+        });
+      });
     });
   }
 
-  filter(module: string): void {
+  removeFilter(language: Language): void {
+    if (language.getName === this.mainLanguage.getName) {
+      this.router.navigate(['projetos']);
+    }
 
+    this.languagesFilter.map((object) => {
+      if (object.language.getName === language.getName) {
+        object.active = false;
+      }
+    });
+  }
+
+  initVariables(name: string): void {
+    this.languages = [];
+    this.projects = [];
+    this.mainLanguage = new Language().noName();
+    this.languagesFilter = [];
+
+    this.languages = this.languagesService.getLanguages;
+    this.projects = this.projectsService.getProjects;
+
+    const mainLanguageTest = this.languagesService.getLanguages.find((language) => {
+      return language.getName.toLocaleLowerCase() === name;
+    });
+
+    if (mainLanguageTest) {
+      this.mainLanguage = mainLanguageTest;
+      this.initFilters(this.mainLanguage.getName);
+    } else {
+      this.mainLanguage = new Language();
+      this.initFilters(this.mainLanguage.getName);
+    }
+  }
+
+  initFilters(name: string): void {
+    if (name === undefined) {
+      this.languages.forEach((language) => {
+        this.languagesFilter.push({ language: language, match: true, active: false });
+      });
+    } else {
+      this.languages.forEach((language) => {
+        if (name === language.getName) {
+          this.languagesFilter.push({ language: language, match: false, active: true });
+        } else {
+          this.languagesFilter.push({ language: language, match: true, active: false });
+        }
+      });
+    }
+  }
+
+  findMatches(): void {
+    let activeLanguages = this.languagesFilter
+      .filter((object) => object.active)
+      .map((object) => object.language.getName);
+
+    let languagesMatches = new Array<string>();
+
+    if (activeLanguages.length > 0) {
+      this.projects.forEach((project) => {
+        activeLanguages.forEach((languageName) => {
+          if (project.getTools.includes(languageName)) {
+            project.getTools.forEach((tool) => {
+              if (tool !== languageName && !languagesMatches.includes(tool)) {
+                languagesMatches.push(tool);
+              }
+            });
+          }
+        });
+      });
+    } else {
+      this.languages.forEach((language) => languagesMatches.push(language.getName));
+    }
+
+    this.languagesFilter.forEach((object) => {
+      object.match = languagesMatches.some((languageName) => object.language.getName === languageName);
+    });
   }
 }
