@@ -76,7 +76,7 @@ export class AsideMenuComponent {
     window.open(link, "_blank");
   }
 
-  goToComponent(route: string) {
+  goToProjects(route: string) {
     this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }
