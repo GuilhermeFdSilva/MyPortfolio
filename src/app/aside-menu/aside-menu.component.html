@@ -50,8 +50,14 @@
         <p>Home</p>
       </button>
 
-      <article class="divider-category">
+      <!-- Link para todos os projetos -->
+      <button (click)="[goToProjects(''), closeMenu()]">
+        <mat-icon>book</mat-icon>
         <p>Projetos</p>
+      </button>
+
+      <article class="divider-category">
+        <p>Categorias</p>
         <mat-divider></mat-divider>
       </article>
 
