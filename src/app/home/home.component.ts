@@ -33,7 +33,7 @@ export class HomeComponent {
     window.open(link, '_blank');
   }
 
-  goToComponent(route: string) {
+  goToPorjects(route: string) {
     this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }
