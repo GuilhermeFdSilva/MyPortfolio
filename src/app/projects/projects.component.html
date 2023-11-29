@@ -48,15 +48,39 @@
 
 <article id="project-list">
 
-  <!-- Titulo lista de projetos -->
+  <!-- Titulo lista de projetos vazio -->
   <section class="text-project-list" *ngIf="projects.length == 0">
     <h2>Nenhum Projeto encontrado</h2>
     <p>Talvez o projeto que procura não esteja listado, ou disponível no meu GitHub. ¯\_(ツ)_/¯</p>
   </section>
-
+  
+  <!-- Titulo lista de projetos encontrados -->
   <section class="text-project-list" *ngIf="projects.length != 0">
     <h2>Projetos</h2>
   </section>
 
-  <mat-divider class="text-project-list" *ngIf="projects.length != 0"></mat-divider>
+  <mat-divider id="list-divider" *ngIf="projects.length != 0"></mat-divider>
+
+  <!-- Container da lista -->
+  <section id="container-list">
+
+    <!-- Card de apresentação do projeto -->
+    <mat-card *ngFor="let project of projects">
+
+      <!-- Imagem do card -->
+      <div class="card-img">
+        <img class="img-background" [src]="project.getImg" [alt]="project.getTitle">
+        <img [src]="project.getImg" [alt]="project.getTitle">
+      </div>
+
+      <mat-card-content>
+        <h4>{{ project.getTitle }}</h4>
+        <p>{{ project.getDesc }}</p>
+      </mat-card-content>
+    
+      <mat-card-actions>
+        <button>Ver mais</button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
 </article>
