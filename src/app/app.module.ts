@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatCardModule} from '@angular/material/card';
 
 // Providers
 import { LanguagesService } from 'src/assets/services/languages/languages.service';
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     // Material
     MatIconModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCardModule
   ],
   providers: [LanguagesService],
   bootstrap: [AppComponent]
