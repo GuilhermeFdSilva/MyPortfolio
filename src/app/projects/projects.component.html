@@ -24,7 +24,8 @@
       <h3>Filtrar por:</h3>
       <ul>
         <div *ngFor="let filter of languagesFilter" (click)="removeFilter(filter.language)">
-          <li class="selected-filter" *ngIf="filter.active" [ngClass]="filter.language.getName === mainLanguage.getName ? 'main' : ''">
+          <li class="selected-filter" *ngIf="filter.active"
+            [ngClass]="filter.language.getName === mainLanguage.getName ? 'main' : ''">
             <img [src]="filter.language.getStick" [alt]="filter.language.getName">
             <mat-icon>close</mat-icon>
           </li>
@@ -37,9 +38,25 @@
       <h3>Filtros:</h3>
       <ul>
         <li *ngFor="let filter of languagesFilter; let i = index" (click)="addFilter(i)">
-          <img [ngClass]="filter.match ? '' : 'disabled'" [src]="filter.language.getStick" [alt]="filter.language.getName">
+          <img [ngClass]="filter.match ? '' : 'disabled'" [src]="filter.language.getStick"
+            [alt]="filter.language.getName">
         </li>
       </ul>
     </div>
   </section>
+</article>
+
+<article id="project-list">
+
+  <!-- Titulo lista de projetos -->
+  <section class="text-project-list" *ngIf="projects.length == 0">
+    <h2>Nenhum Projeto encontrado</h2>
+    <p>Talvez o projeto que procura não esteja listado, ou disponível no meu GitHub. ¯\_(ツ)_/¯</p>
+  </section>
+
+  <section class="text-project-list" *ngIf="projects.length != 0">
+    <h2>Projetos</h2>
+  </section>
+
+  <mat-divider class="text-project-list" *ngIf="projects.length != 0"></mat-divider>
 </article>
