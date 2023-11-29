@@ -36,7 +36,7 @@
     <div>
       <h3>Filtros:</h3>
       <ul>
-        <li *ngFor="let filter of languagesFilter">
+        <li *ngFor="let filter of languagesFilter; let i = index" (click)="addFilter(i)">
           <img [ngClass]="filter.match ? '' : 'disabled'" [src]="filter.language.getStick" [alt]="filter.language.getName">
         </li>
       </ul>
