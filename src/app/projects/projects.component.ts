@@ -27,10 +27,20 @@ export class ProjectsComponent {
       this.languagesService.getObservableData.subscribe(() => {
         this.projectsService.getObservableData.subscribe(() => {
           this.initVariables(name);
-          this.findMatches();
         });
       });
     });
+  }
+
+  addFilter(index: number): void {
+    const language = this.languagesFilter[index];
+
+    if (language.match) {
+      language.active = true;
+      this.languagesFilter[index] = language;
+
+      this.findMatches();
+    }
   }
 
   removeFilter(language: Language): void {
@@ -43,6 +53,7 @@ export class ProjectsComponent {
         object.active = false;
       }
     });
+    this.findMatches();
   }
 
   initVariables(name: string): void {
@@ -61,9 +72,11 @@ export class ProjectsComponent {
     if (mainLanguageTest) {
       this.mainLanguage = mainLanguageTest;
       this.initFilters(this.mainLanguage.getName);
+      this.findMatches();
     } else {
       this.mainLanguage = new Language();
       this.initFilters(this.mainLanguage.getName);
+      this.findMatches();
     }
   }
 
@@ -95,7 +108,11 @@ export class ProjectsComponent {
         activeLanguages.forEach((languageName) => {
           if (project.getTools.includes(languageName)) {
             project.getTools.forEach((tool) => {
-              if (tool !== languageName && !languagesMatches.includes(tool)) {
+              if (
+                tool !== languageName && 
+                !languagesMatches.includes(tool) &&
+                !activeLanguages.includes(tool)
+                ) {
                 languagesMatches.push(tool);
               }
             });
