@@ -88,7 +88,7 @@ export class ProjectsComponent {
     } else {
       this.languages.forEach((language) => {
         if (name === language.getName) {
-          this.languagesFilter.push({ language: language, match: false, active: true });
+          this.languagesFilter.splice(0, 0, { language: language, match: false, active: true });
         } else {
           this.languagesFilter.push({ language: language, match: true, active: false });
         }
@@ -105,19 +105,21 @@ export class ProjectsComponent {
 
     if (activeLanguages.length > 0) {
       this.projects.forEach((project) => {
-        activeLanguages.forEach((languageName) => {
-          if (project.getTools.includes(languageName)) {
-            project.getTools.forEach((tool) => {
+        let includesAll = activeLanguages.every((language) => project.getTools.includes(language))
+
+        if (includesAll) {
+          project.getTools.forEach((tool) => {
+            activeLanguages.forEach((languageName) => {
               if (
-                tool !== languageName && 
+                tool !== languageName &&
                 !languagesMatches.includes(tool) &&
                 !activeLanguages.includes(tool)
-                ) {
+              ) {
                 languagesMatches.push(tool);
               }
             });
-          }
-        });
+          });
+        }
       });
     } else {
       this.languages.forEach((language) => languagesMatches.push(language.getName));
