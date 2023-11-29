@@ -50,7 +50,10 @@
           height: 28px;
           margin: 0 10px 10px 0;
           position: relative;
+
+          img {
           cursor: pointer;
+          }
 
           mat-icon {
             height: $font-normal-size;
