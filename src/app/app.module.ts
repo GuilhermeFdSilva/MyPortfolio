@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalhesComponent } from './detalhes/detalhes.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     AsideMenuComponent,
     FooterComponent,
     HomeComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    DetalhesComponent
   ],
   imports: [
     BrowserModule,
