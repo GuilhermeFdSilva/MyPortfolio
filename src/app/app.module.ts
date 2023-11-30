@@ -21,8 +21,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DetalhesComponent } from './detalhes/detalhes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { DetalhesComponent } from './detalhes/detalhes.component';
     FooterComponent,
     HomeComponent,
     ProjectsComponent,
-    DetalhesComponent
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
