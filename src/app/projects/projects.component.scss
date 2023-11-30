@@ -122,14 +122,15 @@
   }
 
   #container-list {
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
 
     mat-card {
-      width: calc(33% - 20px);
+      width: calc(33.33% - 10px);
       height: 450px;
       background-color: $background-ternary-color;
 
