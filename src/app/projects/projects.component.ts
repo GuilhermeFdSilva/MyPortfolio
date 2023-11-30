@@ -14,6 +14,7 @@ export class ProjectsComponent {
   projects: Array<Project> = [];
   mainLanguage: Language = new Language().noName();
   languagesFilter: Array<any> = [];
+  projectsFilter: Array<Project> = [];
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private languagesService: LanguagesService, private projectsService: ProjectsService) { }
 
@@ -97,6 +98,8 @@ export class ProjectsComponent {
   }
 
   findMatches(): void {
+    this.projectsFilter = [];
+
     let activeLanguages = this.languagesFilter
       .filter((object) => object.active)
       .map((object) => object.language.getName);
@@ -108,6 +111,8 @@ export class ProjectsComponent {
         let includesAll = activeLanguages.every((language) => project.getTools.includes(language))
 
         if (includesAll) {
+          this.projectsFilter.push(project)
+
           project.getTools.forEach((tool) => {
             activeLanguages.forEach((languageName) => {
               if (
@@ -123,6 +128,7 @@ export class ProjectsComponent {
       });
     } else {
       this.languages.forEach((language) => languagesMatches.push(language.getName));
+      this.projectsFilter = this.projects;
     }
 
     this.languagesFilter.forEach((object) => {
