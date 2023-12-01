@@ -1,1 +1,25 @@
-<p>details works!</p>
+<article id="project-title">
+  <h1>{{ project.getTitle }}</h1>
+  <p>{{ project.getDesc }}</p>
+</article>
+
+<article id="project-info">
+  <img [src]="project.getImg" [alt]="project.getTitle">
+
+  <ul>
+    <div *ngFor="let language of languages">
+      <li *ngIf="project.getTools.includes(language.getName)">
+        <img [src]="language.getStick" [alt]="language.getName">
+      </li>
+    </div>
+  </ul>
+
+  <section id="reade-me">
+
+  </section>
+
+  <section id="acess">
+    <button>GitHub</button>
+    <button *ngIf="project.getLinkPG !== ''">Acessar</button>
+  </section>
+</article>
