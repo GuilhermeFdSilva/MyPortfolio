@@ -32,6 +32,7 @@ export class ProjectsService {
 }
 
 export class Project {
+  private id: number;
   private title: string;
   private img: string;
   private desc: string;
@@ -41,6 +42,10 @@ export class Project {
   private linkPG: string;
 
   constructor() { }
+
+  get getId(): number {
+    return this.id;
+  }
 
   get getTitle(): string {
     return this.title;
