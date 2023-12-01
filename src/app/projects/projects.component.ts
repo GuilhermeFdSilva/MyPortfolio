@@ -33,6 +33,10 @@ export class ProjectsComponent {
     });
   }
 
+  navigate(projectId: number): void {
+    this.router.navigate([`detalhes/${projectId}`]);
+  }
+
   addFilter(index: number): void {
     const language = this.languagesFilter[index];
 
