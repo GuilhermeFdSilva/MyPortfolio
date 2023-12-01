@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ReademeService } from './reademe.service';
+import { ReadmeService } from './readme.service';
 
-describe('ReademeService', () => {
-  let service: ReademeService;
+describe('ReadmeService', () => {
+  let service: ReadmeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ReademeService);
+    service = TestBed.inject(ReadmeService);
   });
 
   it('should be created', () => {
