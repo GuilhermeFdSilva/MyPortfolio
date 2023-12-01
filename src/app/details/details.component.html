@@ -6,16 +6,23 @@
 <article id="project-info">
   <img [src]="project.getImg" [alt]="project.getTitle">
 
-  <ul>
+  <ul id="tools-list">
     <div *ngFor="let language of languages">
       <li *ngIf="project.getTools.includes(language.getName)">
-        <img [src]="language.getStick" [alt]="language.getName">
+        <a [href]="language.getLink" target="_blank">
+          <img [src]="language.getStick" [alt]="language.getName">
+        </a>
       </li>
     </div>
   </ul>
 
   <section id="reade-me">
+    <div id="header-readme">
+      <h3>README.md</h3>
+    </div>
 
+    <div id="content-readme" [innerHTML]="readmeContent">
+    </div>
   </section>
 
   <section id="acess">
