@@ -1,11 +1,15 @@
 <article id="project-info">
-  <h1>{{ project.getTitle }}</h1>
+  <section id="title">
+    <h1>{{ project.getTitle }}</h1>
+  </section>
 
   <mat-divider></mat-divider>
 
-  <img [src]="project.getImg" [alt]="project.getTitle">
+  <section id="image">
+    <img [src]="project.getImg" [alt]="project.getTitle">
+  </section>
 
-  <section id="reade-me">
+  <section id="readme">
     <div id="header-readme">
       <h3>README.md</h3>
     </div>
@@ -14,7 +18,7 @@
     </div>
   </section>
 
-  <section id="acess">
+  <section id="access">
     <button>GitHub</button>
     <button *ngIf="project.getLinkPG !== ''">Acessar</button>
   </section>
