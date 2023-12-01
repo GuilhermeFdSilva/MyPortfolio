@@ -1,11 +1,9 @@
-import { ReadmeService } from './../../assets/services/readme/readme.service';
-import { LanguagesService } from './../../assets/services/languages/languages.service';
-import { ProjectsService } from './../../assets/services/projects/projects.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { Project } from 'src/assets/services/projects/projects.service';
-import { Language } from 'src/assets/services/languages/languages.service';
 import { marked } from 'marked';
+import { Project } from 'src/assets/services/projects/projects.service';
+import { ProjectsService } from './../../assets/services/projects/projects.service';
+import { ReadmeService } from './../../assets/services/readme/readme.service';
 
 @Component({
   selector: 'app-details',
@@ -14,10 +12,9 @@ import { marked } from 'marked';
 })
 export class DetailsComponent {
   project: Project = new Project();
-  languages: Array<Language> = [];
   readmeContent: string | Promise<string>;
 
-  constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService, private languagesService: LanguagesService, private readmeService: ReadmeService) { }
+  constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService, private readmeService: ReadmeService) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -36,11 +33,6 @@ export class DetailsComponent {
           this.readmeContent = marked(this.readmeService.getReadme);
         });
       });
-    });
-
-    this.languages = this.languagesService.getLanguages;
-    this.languagesService.getObservableData.subscribe(() => {
-      this.languages = this.languagesService.getLanguages;
     });
   }
 }

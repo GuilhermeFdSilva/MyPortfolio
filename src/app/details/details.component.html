@@ -1,20 +1,9 @@
-<article id="project-title">
-  <h1>{{ project.getTitle }}</h1>
-  <p>{{ project.getDesc }}</p>
-</article>
-
 <article id="project-info">
-  <img [src]="project.getImg" [alt]="project.getTitle">
+  <h1>{{ project.getTitle }}</h1>
 
-  <ul id="tools-list">
-    <div *ngFor="let language of languages">
-      <li *ngIf="project.getTools.includes(language.getName)">
-        <a [href]="language.getLink" target="_blank">
-          <img [src]="language.getStick" [alt]="language.getName">
-        </a>
-      </li>
-    </div>
-  </ul>
+  <mat-divider></mat-divider>
+
+  <img [src]="project.getImg" [alt]="project.getTitle">
 
   <section id="reade-me">
     <div id="header-readme">
