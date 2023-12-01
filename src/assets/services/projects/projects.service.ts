@@ -34,6 +34,7 @@ export class ProjectsService {
 export class Project {
   private id: number;
   private title: string;
+  private nameGH: string;
   private img: string;
   private desc: string;
   private mainLanguage: string;
@@ -49,6 +50,10 @@ export class Project {
 
   get getTitle(): string {
     return this.title;
+  }
+
+  get getNameGH(): string {
+    return this.nameGH;
   }
 
   get getImg(): string {
