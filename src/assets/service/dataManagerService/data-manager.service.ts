@@ -41,14 +41,15 @@ export class DataManagerService {
   loadLanguagesAndProjects(): void {
     forkJoin([this.languagesService.getData, this.projectsService.getData])
       .subscribe(([languages, projects]) => {
-        this.languages = languages;
-        this.projects = projects;
+        this.languages = languages.map((language) => Object.assign(new Language, language));
+        this.projects = projects.map((project) => Object.assign(new Project, project));
 
         if (this.languages.length < 1 || this.projects.length < 1) {
           setTimeout(() => {
             this.loadLanguagesAndProjects();
           }, 500);
         } else {
+          this.observableData.next(true);
           this.loadReadmes();
         }
       });
