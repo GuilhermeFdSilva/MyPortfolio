@@ -1,7 +1,8 @@
-import { Project, ProjectsService } from './../../assets/services/projects/projects.service';
-import { Language, LanguagesService } from 'src/assets/services/languages/languages.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataManagerService } from 'src/assets/service/dataManagerService/data-manager.service';
+import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
+import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 
 @Component({
   selector: 'app-footer',
@@ -32,26 +33,23 @@ export class FooterComponent {
     }
   ];
   languages: Array<Language> = [];
-  projects:   Array<Project> = [];
+  projects: Array<Project> = [];
 
-  constructor(private languagesService: LanguagesService, private projectsService: ProjectsService, private router: Router) { }
+  constructor(private router: Router, private dataManagerService: DataManagerService) { }
 
   ngOnInit(): void {
-    this.languagesService.getObservableData.subscribe(() => {
-      this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
+    this.dataManagerService.getObservableData.subscribe((loaded) => {
+      if (loaded) {
+        this.languages = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+        this.projects = this.dataManagerService.getProjects;
+      }
     });
-    this.projectsService.getObservableData.subscribe(() => {
-      this.projects = this.projectsService.getProjects;
-    });
-
-    this.languages = this.languagesService.getLanguages.filter((language) => language.isMian);
-    this.projects = this.projectsService.getProjects;
   }
 
   goTo(link: string): void {
     window.open(link, '_blank');
   }
-  
+
   goToComponent(route: string) {
     this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }

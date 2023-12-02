@@ -1,6 +1,7 @@
-import { Language, LanguagesService } from 'src/assets/services/languages/languages.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
+import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 
 @Component({
   selector: 'app-aside-menu',
@@ -33,13 +34,14 @@ export class AsideMenuComponent {
   ];
   mainCategories: Array<Language> = [];
 
-  constructor(private languagesService: LanguagesService, private router: Router) { }
+  constructor(private dataManagerService: DataManagerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.languagesService.getObservableData.subscribe(() => {
-      this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
+    this.dataManagerService.getObservableData.subscribe((loaded) => {
+      if (loaded) {
+        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+      }
     });
-    this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
   }
 
   changeDisplay(): void {

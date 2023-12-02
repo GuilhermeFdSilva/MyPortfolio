@@ -14,7 +14,7 @@
       <h3>README.md</h3>
     </div>
 
-    <div id="content-readme" [innerHTML]="readmeContent">
+    <div id="content-readme" [innerHTML]="readmeContent" *ngIf="readmeContent !== ''">
     </div>
   </section>
 

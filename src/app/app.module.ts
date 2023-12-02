@@ -14,7 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatCardModule} from '@angular/material/card';
 
 // Providers
-import { LanguagesService } from 'src/assets/services/languages/languages.service';
+import { DataManagerService } from './../assets/service/dataManagerService/data-manager.service';
 
 // Componentes
 import { FooterComponent } from './footer/footer.component';
@@ -47,7 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatCardModule
   ],
-  providers: [LanguagesService],
+  providers: [DataManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

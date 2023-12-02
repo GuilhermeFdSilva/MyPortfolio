@@ -1,9 +1,8 @@
+import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
-import { Project } from 'src/assets/services/projects/projects.service';
-import { ProjectsService } from './../../assets/services/projects/projects.service';
-import { ReadmeService } from './../../assets/services/readme/readme.service';
+import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 
 @Component({
   selector: 'app-details',
@@ -14,7 +13,7 @@ export class DetailsComponent {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
 
-  constructor(private activatedRoute: ActivatedRoute, private projectsService: ProjectsService, private readmeService: ReadmeService) { }
+  constructor(private activatedRoute: ActivatedRoute, private dataManagerService: DataManagerService) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -22,16 +21,14 @@ export class DetailsComponent {
     this.activatedRoute.paramMap.subscribe((param) => {
       const id = param.get('id') ?? '';
 
-      let projectFind = this.projectsService.getProjects.find((project) => project.getId == Number.parseInt(id));
-      this.project = projectFind ? projectFind : new Project();
-      this.projectsService.getObservableData.subscribe(() => {
-        projectFind = this.projectsService.getProjects.find((project) => project.getId == Number.parseInt(id));
-        this.project = projectFind ? projectFind : new Project();
+      this.dataManagerService.getObservableData.subscribe((loaded) => {
+        if (loaded) {
+          const projectFind = this.dataManagerService.getProjects.find((project) => project.getId == Number.parseInt(id));
+          this.project = projectFind ? projectFind : new Project();
 
-        this.readmeService.getProjectReadme(this.project.getNameGH);
-        this.readmeService.getObservableData.subscribe(() => {
-          this.readmeContent = marked(this.readmeService.getReadme);
-        });
+          const readmeFind = this.dataManagerService.getReadmeList.find((readme) => readme.getProjectName === this.project.getNameGH);
+          this.readmeContent = readmeFind ? marked(readmeFind.getProjectReadme) : '';
+        }
       });
     });
   }

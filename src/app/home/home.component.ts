@@ -1,6 +1,7 @@
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanguagesService, Language } from './../../assets/services/languages/languages.service';
-import { Component, OnInit } from '@angular/core';
+import { DataManagerService } from 'src/assets/service/dataManagerService/data-manager.service';
+import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 
 @Component({
   selector: 'app-home',
@@ -13,22 +14,17 @@ export class HomeComponent {
   database: Array<Language> = [];
   mainCategories: Array<Language> = []
 
-  constructor(private languagesService: LanguagesService, private router: Router) { }
+  constructor(private router: Router, private dataManagerService: DataManagerService) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    this.languagesService.getObservableData.subscribe(() => {
-      this.languages = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
-      this.frontEnd = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
-      this.database = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
-      this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
+    this.dataManagerService.getObservableData.subscribe(() => {
+      this.languages = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
+      this.frontEnd = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
+      this.database = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
+      this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
     });
-
-    this.languages = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
-    this.frontEnd = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
-    this.database = this.languagesService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
-    this.mainCategories = this.languagesService.getLanguages.filter((language) => language.isMian);
   }
 
   goTo(link: string): void {

@@ -1,8 +1,8 @@
-import { BehaviorSubject, Observable, catchError, delay, finalize, forkJoin, map, of } from 'rxjs';
-import { ReadmeService } from './readme/readme.service';
-import { Project, ProjectsService } from './projects/projects.service';
-import { Language, LanguagesService } from './languages/languages.service';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, forkJoin, map } from 'rxjs';
+import { Language, LanguagesService } from './languages/languages.service';
+import { Project, ProjectsService } from './projects/projects.service';
+import { ProjectReadme, ReadmeService } from './readme/readme.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 export class DataManagerService {
   private languages: Array<Language> = [];
   private projects: Array<Project> = [];
-  private readmeList: Array<any> = [];
+  private readmeList: Array<ProjectReadme> = [];
 
   private observableData = new BehaviorSubject<boolean>(false);
 
@@ -34,7 +34,7 @@ export class DataManagerService {
     return this.projects;
   }
 
-  get getReadmeList(): Array<any> {
+  get getReadmeList(): Array<ProjectReadme> {
     return this.readmeList;
   }
 

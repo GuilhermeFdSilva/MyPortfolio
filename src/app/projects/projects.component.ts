@@ -1,8 +1,8 @@
-import { Project, ProjectsService } from './../../assets/services/projects/projects.service';
-import { LanguagesService } from './../../assets/services/languages/languages.service';
+import { DataManagerService } from 'src/assets/service/dataManagerService/data-manager.service';
+import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
+import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Language } from 'src/assets/services/languages/languages.service';
 
 @Component({
   selector: 'app-projects',
@@ -16,7 +16,7 @@ export class ProjectsComponent {
   languagesFilter: Array<any> = [];
   projectsFilter: Array<Project> = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private languagesService: LanguagesService, private projectsService: ProjectsService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataManagerService: DataManagerService) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -24,11 +24,8 @@ export class ProjectsComponent {
     this.activatedRoute.paramMap.subscribe((param) => {
       const name = param.get('module') ?? '';
 
-      this.initVariables(name);
-      this.languagesService.getObservableData.subscribe(() => {
-        this.projectsService.getObservableData.subscribe(() => {
-          this.initVariables(name);
-        });
+      this.dataManagerService.getObservableData.subscribe((loaded) => {
+        this.initVariables(name);
       });
     });
   }
@@ -62,17 +59,13 @@ export class ProjectsComponent {
   }
 
   initVariables(name: string): void {
-    this.languages = [];
-    this.projects = [];
     this.mainLanguage = new Language().noName();
     this.languagesFilter = [];
 
-    this.languages = this.languagesService.getLanguages;
-    this.projects = this.projectsService.getProjects;
+    this.languages = this.dataManagerService.getLanguages;
+    this.projects = this.dataManagerService.getProjects;
 
-    const mainLanguageTest = this.languagesService.getLanguages.find((language) => {
-      return language.getName.toLocaleLowerCase() === name;
-    });
+    const mainLanguageTest = this.dataManagerService.getLanguages.find((language) => language.getName.toLocaleLowerCase() === name);
 
     if (mainLanguageTest) {
       this.mainLanguage = mainLanguageTest;
