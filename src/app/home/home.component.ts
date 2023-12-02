@@ -19,11 +19,13 @@ export class HomeComponent {
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    this.dataManagerService.getObservableData.subscribe(() => {
-      this.languages = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
-      this.frontEnd = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
-      this.database = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
-      this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+    this.dataManagerService.getObservableData.subscribe((loaded) => {
+      if (loaded) {
+        this.languages = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
+        this.frontEnd = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
+        this.database = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
+        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+      }
     });
   }
 
