@@ -1,4 +1,4 @@
-import { Subject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -6,33 +6,35 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ReadmeService {
-  private readme: string;
-
-  private observableData = new Subject<void>();
-
   constructor(private httpClient: HttpClient) { }
 
-  getProjectReadme(projectName: string) {
-    this.httpClient.get<any>(`https://api.github.com/repos/GuilhermeFdSilva/${projectName}/contents/README.md`)
-      .subscribe((response) => {
-        this.readme = this.decode(response.content);
-        this.observableData.next();
-      });
+  getProjectReadme(projectName: string): Observable<any> {
+    return this.httpClient.get<any>(`https://api.github.com/repos/GuilhermeFdSilva/${projectName}/contents/README.md`);
   }
 
-  private decode(content: string): string {
-    const binaryString = atob(content);
+  static decode(projectName: string, contentReadme: string): ProjectReadme {
+    const binaryString = atob(contentReadme);
     
     const textReadme = new TextDecoder('utf-8').decode(new Uint8Array([...binaryString].map(char => char.charCodeAt(0))));
     
-    return textReadme;
+    return new ProjectReadme(projectName, textReadme);
+  }
+}
+
+export class ProjectReadme {
+  private projectName: string;
+  private projectReadme: string;
+
+  constructor(projectName: string, projectReadme: string) {
+    this.projectName = projectName;
+    this.projectReadme = projectReadme;
   }
 
-  get getReadme(): string {
-    return this.readme;
+  get getProjectName(): string {
+    return this.projectName;
   }
 
-  get getObservableData(): Observable<void> {
-    return this.observableData.asObservable();
+  get getProjectReadme(): string {
+    return this.projectReadme;
   }
 }

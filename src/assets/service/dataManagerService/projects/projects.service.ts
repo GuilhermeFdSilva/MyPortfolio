@@ -1,32 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
-  private projects: Array<Project> = [];
+  constructor(private httpClient: HttpClient) { }
 
-  private observableData = new Subject<void>();
-
-  constructor(private httpClient: HttpClient) {
-    this.projects = [];
-    this.getHTTPObservable().subscribe((response) => {
-      this.projects = response.map((object) => Object.assign(new Project, object));
-      this.observableData.next();
-    });
-  }
-
-  get getProjects(): Array<Project> {
-    return this.projects;
-  }
-
-  get getObservableData(): Observable<void> {
-    return this.observableData.asObservable();
-  }
-
-  private getHTTPObservable(): Observable<Array<Project>> {
+  get getData(): Observable<Array<Project>> {
     return this.httpClient.get<Array<Project>>("https://json-server-my-portfolio.vercel.app/projects");
   }
 }

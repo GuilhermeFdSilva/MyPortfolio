@@ -1,32 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class LanguagesService {
-  private languages: Array<Language> = [];
+  constructor(private httpClient: HttpClient) { }
 
-  private observableData = new Subject<void>();
-  
-  constructor(private httpClient: HttpClient) {
-    this.languages = [];
-    this.getHTTPObservable().subscribe((response) => {
-      this.languages = response.map((object) => Object.assign(new Language, object));
-      this.observableData.next();
-    });
-  }
-
-  get getLanguages(): Array<Language> {
-    return this.languages;
-  }
-
-  get getObservableData(): Observable<void> {
-    return this.observableData.asObservable();
-  }
-
-  private getHTTPObservable(): Observable<Array<Language>> {
+  get getData(): Observable<Array<Language>> {
     return this.httpClient.get<Array<Language>>("https://json-server-my-portfolio.vercel.app/languages");
   }
 }
