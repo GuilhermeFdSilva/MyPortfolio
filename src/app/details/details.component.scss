@@ -36,7 +36,7 @@
 
   #readme {
     width: 100%;
-    margin: 20px auto;
+    margin-top: 20px;
     border: 2px solid $background-ternary-color;
     border-radius: 10px;
 
@@ -63,6 +63,7 @@
   }
 
   #access {
+    margin-top: 20px;
     display: flex;
     gap: 10px;
 

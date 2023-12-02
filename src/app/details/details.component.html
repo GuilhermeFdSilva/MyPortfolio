@@ -9,12 +9,12 @@
     <img [src]="project.getImg" [alt]="project.getTitle">
   </section>
 
-  <section id="readme">
+  <section id="readme" *ngIf="readmeContent !== ''">
     <div id="header-readme">
       <h3>README.md</h3>
     </div>
 
-    <div id="content-readme" [innerHTML]="readmeContent" *ngIf="readmeContent !== ''">
+    <div id="content-readme" [innerHTML]="readmeContent">
     </div>
   </section>
 
