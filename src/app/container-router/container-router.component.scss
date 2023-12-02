@@ -26,6 +26,28 @@
   }
 }
 
+#loading {
+  background-color: $background-primary-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 1s;
+}
+
+.visible {
+  z-index: 100;
+}
+
+.hidden {
+  z-index: -1;
+  opacity: 0;
+}
+
 @media (max-width: 1266px) {
   #background {
     #container-router {

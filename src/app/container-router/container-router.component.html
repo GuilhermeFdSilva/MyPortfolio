@@ -1,5 +1,9 @@
-<div id="background">
+<div id="background" *ngIf="loaded">
   <article id="container-router">
     <router-outlet></router-outlet>
   </article>
+</div>
+
+<div id="loading" [ngClass]="loaded ? 'hidden' : 'visible'">
+  <img src="https://i.gifer.com/origin/36/36527397c208b977fa3ef21f68c0f7b2_w200.gif" alt="Carregando">
 </div>
