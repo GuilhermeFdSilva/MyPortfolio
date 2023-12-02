@@ -60,6 +60,13 @@ export class DataManagerService {
     });
 
     forkJoin(readmeObservables)
+      .pipe(
+        map((readmeList) => {
+          return readmeList.map((readme, index) => {
+            return ReadmeService.decode(this.projects[index].getNameGH, readme.content);
+          });
+        })
+      )
       .subscribe((readmeList) => {
         this.readmeList = readmeList;
 
