@@ -32,4 +32,4 @@ jobs:
           aws-region: sa-east-1
 
       - name: Deploy no S3
-        run: aws s3 sync ./build s3://portfolio-guilherme
+        run: aws s3 sync dist/my-portfolio/ s3://portfolio-guilherme
