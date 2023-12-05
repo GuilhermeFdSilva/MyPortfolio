@@ -1,4 +1,4 @@
-name: Fazendo o deploy no S3
+name: Fazendo o deploy no S3 🤖
 
 on:
   push:
