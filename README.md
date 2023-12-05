@@ -11,9 +11,11 @@ Para a estilização do site são utilizados componentes do Angular Material, al
   <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Angular_getting_started" target="_blank">
     <img src="https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-angular.svg" alt="Angular" height="28px">
   </a>
+  <br>
   <a href="https://www.typescriptlang.org/docs/" target="_blank">
     <img src= "https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-typescript.svg" alt="TypeScript" height="28px">
   </a>
+  <br>
   <a href="https://sass-lang.com/documentation/" target="_blank">
     <img src= "https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-sass.svg" alt="SASS" height="28px">
   </a>
