@@ -1,4 +1,4 @@
-name: Upload AWS
+name: Fazendo o deploy no S3
 
 on:
   push:
@@ -6,19 +6,22 @@ on:
       - main
 
 jobs:
-  Deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Fazendo o checkout
         uses: actions/checkout@v2
 
-      - name: Setup node
+      - name: Configurando o Node.js
         uses: actions/setup-node@v2
+        with:
+          node-version: 20
 
-      - name: Install dependencies
+      - name: Instalando dependências
         run: npm install
 
-      - name: Build static file
+      - name: Build da aplicação
         run: npm run build
 
       - name: Configure AWS credentials
@@ -28,5 +31,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
           aws-region: sa-east-1
 
-      - name: Deploy static site to S3 bucket
+      - name: Deploy no S3
         run: aws s3 sync ./build s3://portfolio-guilherme
