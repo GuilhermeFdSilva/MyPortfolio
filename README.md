@@ -1,27 +1,55 @@
-# MyPortfolio
+# MyPortfolio 🤓
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+O MyPortfolio é um projeto pessoal desenvolvido Angular.
 
-## Development server
+Esse projeto tem como objetivo apresentar meus trabalhos, experiencias e habilidades de maneira clara e atrativa.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para a estilização do site são utilizados componentes do Angular Material, além do SCSS. Todas os componentes do site são responsivos.
 
-## Code scaffolding
+## Tecnologias aplicadas 🧑🏽‍💻
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  <a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Angular_getting_started" target="_blank">
+    <img src="https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-angular.svg" alt="Angular" height="28px">
+  </a>
+  <a href="https://www.typescriptlang.org/docs/" target="_blank">
+    <img src= "https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-typescript.svg" alt="TypeScript" height="28px">
+  </a>
+  <a href="https://sass-lang.com/documentation/" target="_blank">
+    <img src= "https://guilhermefdsilva.github.io/read-db-myPortfolio/sticks/stick-sass.svg" alt="SASS" height="28px">
+  </a>
 
-## Build
+## Só acredito vendo 👀
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para rodar esse projeto em sua máquina você vai precisar de:
 
-## Running unit tests
+* [Node.js](https://nodejs.org/en) v16+
+* [NPM](https://docs.npmjs.com/cli/v6/commands/npm-install) v8+
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Primeiro passo**: Certifique-se de ter o angular instalado globalmente em sua máquina.
+```
+npm install -g @angular/cli
+```
 
-## Running end-to-end tests
+**Segundo**: Clone esse repositório.
+```
+git clone https://github.com/GuilhermeFdSilva/MyPortfolio.git
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Terceiro**: Navegue até a pasta do projeto.
+```
+cd MyPortfolio/
+```
 
-## Further help
+**Quarto**:  Instale as dependências do projeto.
+```
+npm install
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Qunto**: Inicie um servidor local.
+```
+ng serve
+```
+
+Agora é só acessar em qualquer navegador [localhost:4200/](http://localhost:4200/)
+
+### Contribuições são bem-vindas! 🫱🏽‍🫲🏾
