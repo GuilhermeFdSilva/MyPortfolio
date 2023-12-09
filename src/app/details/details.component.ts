@@ -1,9 +1,9 @@
-import { Title } from '@angular/platform-browser';
-import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
 import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
+import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 
 @Component({
   selector: 'app-details',
@@ -30,10 +30,36 @@ export class DetailsComponent {
           this.title.setTitle(`Detalhes ${this.project.getTitle ?? ''}`);
 
           const readmeFind = this.dataManagerService.getReadmeList.find((readme) => readme.getProjectName === this.project.getNameGH);
-          this.readmeContent = readmeFind ? marked(readmeFind.getProjectReadme) : '';
+
+          if (readmeFind) {
+            this.readmeContent = marked(readmeFind.getProjectReadme);
+          } else {
+            this.readmeContent = '';
+          }
         }
       });
     });
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      const divContainer = document.querySelector('#content-readme');
+
+      console.log(divContainer)
+
+      if (divContainer) {
+        const elements = divContainer.querySelectorAll('code');
+
+        console.log(elements.length)
+
+        elements.forEach((element: HTMLElement) => {
+          element.style.display = 'block';
+          element.style.width = '100%';
+          element.style.overflow = 'hidden';
+          element.style.textOverflow = 'ellipsis';
+        });
+      }
+    }, 500);
   }
 
   goTo(link: string) {
