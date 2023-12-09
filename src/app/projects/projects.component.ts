@@ -33,7 +33,7 @@ export class ProjectsComponent {
     });
   }
 
-  navigate(projectId: number): void {
+  goToDetails(projectId: number): void {
     this.router.navigate([`detalhes/${projectId}`]);
   }
 

@@ -50,7 +50,7 @@ export class FooterComponent {
     window.open(link, '_blank');
   }
 
-  goToComponent(route: string) {
+  goToProject(route: string) {
     this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }
