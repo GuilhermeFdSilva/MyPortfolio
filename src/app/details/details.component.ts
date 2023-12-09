@@ -35,4 +35,8 @@ export class DetailsComponent {
       });
     });
   }
+
+  goTo(link: string) {
+    window.open(link, '_blank');
+  }
 }

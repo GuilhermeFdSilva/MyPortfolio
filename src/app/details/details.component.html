@@ -19,7 +19,7 @@
   </section>
 
   <section id="access">
-    <button>GitHub</button>
-    <button *ngIf="project.getLinkPG !== ''">Acessar</button>
+    <button (click)="goTo(project.getLinkGH)">GitHub</button>
+    <button *ngIf="project.getLinkPG !== ''" (click)="goTo(project.getLinkPG)">Acessar</button>
   </section>
 </article>
