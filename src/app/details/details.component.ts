@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +14,7 @@ export class DetailsComponent {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
 
-  constructor(private activatedRoute: ActivatedRoute, private dataManagerService: DataManagerService) { }
+  constructor(private activatedRoute: ActivatedRoute, private dataManagerService: DataManagerService, private title: Title) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -25,6 +26,8 @@ export class DetailsComponent {
         if (loaded) {
           const projectFind = this.dataManagerService.getProjects.find((project) => project.getId == Number.parseInt(id));
           this.project = projectFind ? projectFind : new Project();
+
+          this.title.setTitle(`Detalhes ${this.project.getTitle ?? ''}`);
 
           const readmeFind = this.dataManagerService.getReadmeList.find((readme) => readme.getProjectName === this.project.getNameGH);
           this.readmeContent = readmeFind ? marked(readmeFind.getProjectReadme) : '';

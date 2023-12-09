@@ -3,6 +3,7 @@ import { Project } from 'src/assets/service/dataManagerService/projects/projects
 import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-projects',
@@ -16,13 +17,15 @@ export class ProjectsComponent {
   languagesFilter: Array<any> = [];
   projectsFilter: Array<Project> = [];
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataManagerService: DataManagerService) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataManagerService: DataManagerService, private title: Title) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
     this.activatedRoute.paramMap.subscribe((param) => {
       const name = param.get('module') ?? '';
+
+      this.title.setTitle(`Projetos ${name ? ' - ' + name : ''}`)
 
       this.dataManagerService.getObservableData.subscribe((loaded) => {
         this.initVariables(name);
