@@ -82,9 +82,30 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 920px) {
+  #project-info {
+    #image {
+      height: fit-content;
+    }
+  }
+}
 
+@media (max-width: 500px) {
   #project-info {
     border: none;
+
+    #title {
+      h1 {
+        font-size: $font-large-size;
+      }
+    }
+
+    #readme {
+      #header-readme {
+        h3 {
+          font-size: $font-normal-size;
+        }
+      }
+    }
   }
 }

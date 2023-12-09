@@ -213,6 +213,23 @@ aside {
     #img-container {
       display: block;
     }
+
+    #links-menu {
+      nav {
+        button {
+          mat-icon,
+          img {
+            width: $font-large-size;
+            height: $font-large-size;
+            font-size: $font-large-size;
+          }
+
+          p {
+            font-size: $font-normal-size;
+          }
+        }
+      }
+    }
   }
 }
 
