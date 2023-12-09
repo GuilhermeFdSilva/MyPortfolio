@@ -27,7 +27,7 @@ export class ProjectReadme {
 
   constructor(projectName: string, projectReadme: string) {
     this.projectName = projectName;
-    this.projectReadme = projectReadme;
+    this.projectReadme = projectReadme.replaceAll('code', 'code style="display: block; width: 100%; overflow:hidden; text-overflow: ellipsis;"');
   }
 
   get getProjectName(): string {
