@@ -45,12 +45,8 @@ export class DetailsComponent {
     setTimeout(() => {
       const divContainer = document.querySelector('#content-readme');
 
-      console.log(divContainer)
-
       if (divContainer) {
         const elements = divContainer.querySelectorAll('code');
-
-        console.log(elements.length)
 
         elements.forEach((element: HTMLElement) => {
           element.style.display = 'block';
