@@ -1,44 +1,5 @@
-<!-- Botão de abertura do menu -->
-<button id="button-menu" (click)="toggleMenu()">
-  <mat-icon>menu</mat-icon>
-</button>
-
 <!-- Começo do menu -->
 <aside id="aside-menu">
-
-  <!-- Cabeçalho -->
-  <div id="header-menu">
-
-    <!-- Head Informações -->
-    <article id="presentation">
-
-      <!-- Imagem -->
-      <section id="img-container">
-        <img src="https://i.ibb.co/st9Q9Gz/Whats-App-Image-2023-10-02-at-12-56-29.jpg" alt="Guilherme França">
-      </section>
-
-      <!-- Link home -->
-      <section id="info-container">
-        <h2>Guilherme França</h2>
-        <h3>Desenvolvedor: Java, Angular, SQL, Mobile(Java)</h3>
-        <h3>Cursando: Analise e Desenvolvimento de Sistemas</h3>
-      </section>
-    </article>
-
-    <!-- Links informações -->
-    <article id="main-links">
-      <ul>
-        <li *ngFor="let mainLink of mainLinks">
-          <a [href]="mainLink.link" target="_blank">
-            <img [src]="mainLink.icon" [alt]="mainLink.description">
-          </a>
-        </li>
-      </ul>
-    </article>
-  </div>
-
-  <!-- Linha divisória -->
-  <mat-divider></mat-divider>
 
   <!-- Navegação -->
   <div id="links-menu">
@@ -46,29 +7,21 @@
 
       <!-- Link para home -->
       <button routerLink="home" (click)="closeMenu()">
-        <mat-icon>home</mat-icon>
+        <mat-icon class="icon">home</mat-icon>
         <p>Home</p>
       </button>
 
       <!-- Link para todos os projetos -->
       <button (click)="[goToProjects(''), closeMenu()]">
-        <mat-icon>book</mat-icon>
+        <mat-icon class="icon">book</mat-icon>
         <p>Projetos</p>
       </button>
 
-      <article class="divider-category">
-        <p>Categorias</p>
-        <mat-divider></mat-divider>
-      </article>
-
       <!-- Linkis por linguagem -->
       <button *ngFor="let module of mainCategories" (click)="[goToProjects(module.getName), closeMenu()]">
-        <img [src]="module.getIcon" [alt]="module.getName">
+        <img class="icon" [src]="module.getIcon" [alt]="module.getName">
         <p>{{ module.getName }}</p>
       </button>
     </nav>
   </div>
 </aside>
-
-<!-- Container transparente -->
-<div id="transparent-container" (click)="closeMenu()"></div>
