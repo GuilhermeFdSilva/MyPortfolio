@@ -1,75 +1,171 @@
 @import '../../assets/css-variables/mainVariables.scss';
 @import '../../assets/css-variables/asideMenuVariables.scss';
 
+#open-menu-button {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: $menu-width;
+  height: $button-height;
+  border-radius: 0px;
+  border: none;
+
+  mat-icon {
+    font-size: $icon-size;
+    height: $icon-size;
+    width: $icon-size;
+  }
+}
+
 aside {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
   width: $menu-width;
   max-width: $menu-width;
   height: 100vh;
   display: flex;
   align-items: center;
   background-color: $background-secondary-color;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  z-index: 5;
+  transition: all ease 0.5s;
 
-  #links-menu {
+  #close-menu-button {
+    width: $menu-width;
+    height: $button-height;
+    border-radius: 0px;
+    border: none;
+    display: none;
 
-    nav {
+    mat-icon {
+      font-size: $icon-size;
+      height: $icon-size;
+      width: $icon-size;
+    }
+  }
+
+  nav {
+    width: $menu-width;
+    display: flex;
+    flex-direction: column;
+
+    button {
+      height: $button-height;
       width: $menu-width;
+      border: none;
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: $background-secondary-color;
+      color: $font-color;
+      cursor: pointer;
+      filter: grayscale(100%);
+      transition: filter ease 0.5s;
 
-      button {
-        height: 48px;
-        width: $menu-width;
-        border: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: $background-secondary-color;
-        color: $font-color;
-        cursor: pointer;
+      .icon {
+        width: $icon-size;
+        height: $icon-size;
+        font-size: $icon-size;
+        color: $primary-color;
+      }
 
-        .icon {
-          width: $icon-size;
-          height: $icon-size;
-          font-size: $icon-size;
-          color: $primary-color;
-        }
+      p {
+        width: 0;
+        margin: 2px;
+        overflow: hidden;
+        font-size: $font-median-size;
+        font-family: $font-family;
+      }
+
+      &:hover {
+        width: fit-content;
+        min-width: $menu-width;
+        background-color: $background-primary-color;
+        padding-left: 17px;
+        filter: grayscale(0%);
 
         p {
-          width: 0;
-          margin: 2px;
-          overflow: hidden;
-          font-size: $font-median-size;
-          font-family: $font-family;
+          width: 200px;
+          transition: all ease 0.5s;
         }
-        
-        &:hover {
+      }
+    }
+
+    mat-divider {
+      background-color: $background-ternary-color;
+      width: 80%;
+      margin: 5px auto;
+      display: none;
+    }
+  }
+}
+
+.visible {
+  left: 0px;
+  box-shadow: 50px 0px 50px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 50px 0px 50px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 50px 0px 50px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media (max-width: 800px) {
+  #open-menu-button {
+    display: block;
+  }
+
+  aside {
+    left: -100%;
+    width: 80vw;
+    max-width: 400px;
+
+    #close-menu-button {
+      display: block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+    }
+
+    nav {
+      width: 100%;
+
+      button {
+        width: 100%;
+        padding-left: 20px;
+        justify-content: start;
+
+        p {
           width: fit-content;
-          min-width: $menu-width;
-          background-color: $background-primary-color;
-          padding-left: 17px;
-          
+        }
+
+        &:hover {
+          width: 100%;
+          padding-left: 20px;
+
           p {
-            width: 200px;
-            transition: all ease 0.5s;
+            width: fit-content;
           }
         }
       }
 
-      mat-divider {
-        background-color: $background-ternary-color;
-        width: 80%;
-        margin: auto;
+      .sub-item {
+        padding-left: 63px;
+
+        &:hover {
+          padding-left: 40px;
+        }
       }
 
-      .divider-for {
-        margin: 5px auto;
+      mat-divider {
+        display: block;
       }
     }
+  }
+}
+
+@media (max-width: 414px) {
+  aside {
+    width: 95vw;
   }
 }
