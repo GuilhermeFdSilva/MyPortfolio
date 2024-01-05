@@ -9,7 +9,6 @@ import { DataManagerService } from './../../assets/service/dataManagerService/da
   styleUrls: ['./aside-menu.component.scss']
 })
 export class AsideMenuComponent {
-  visible: boolean = false;
   mainLinks: any[] = [
     {
       link: "https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155",
@@ -44,33 +43,17 @@ export class AsideMenuComponent {
     });
   }
 
-  changeDisplay(): void {
-    const container = document.getElementById("transparent-container");
-
-    if (container) {
-      container.style.display = this.visible ? "block" : "none";
-    }
-  }
-
   toggleMenu(): void {
-    this.visible = !this.visible;
+    let menu = document.getElementById("aside-menu");
+    
+    if (menu) {
+      let list = menu.classList;
 
-    const aside = document.getElementsByTagName("aside");
-
-    if (aside) {
-      if (this.visible) {
-        aside[0].classList.add("translate-menu");
-        this.changeDisplay();
+      if (list.contains("visible")) {
+        menu.classList.remove("visible")
       } else {
-        aside[0].classList.remove("translate-menu");
-        this.changeDisplay();
+        menu.classList.add("visible");
       }
-    }
-  }
-
-  closeMenu(): void {
-    if (this.visible) {
-      this.toggleMenu()
     }
   }
 
