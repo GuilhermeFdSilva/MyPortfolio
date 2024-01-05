@@ -1,27 +1,35 @@
-<!-- Começo do menu -->
+<!-- Botão responsivo -->
+<button id="open-menu-button" (click)="toggleMenu()">
+  <mat-icon>menu</mat-icon>
+</button>
+
+<!-- Menu lateral -->
 <aside id="aside-menu">
 
-  <!-- Navegação -->
-  <div id="links-menu">
-    <nav>
+  <button id="close-menu-button" (click)="toggleMenu()">
+    <mat-icon>close</mat-icon>  
+  </button>
 
-      <!-- Link para home -->
-      <button routerLink="home" (click)="closeMenu()">
-        <mat-icon class="icon">home</mat-icon>
-        <p>Home</p>
-      </button>
+  <nav>
 
-      <!-- Link para todos os projetos -->
-      <button (click)="[goToProjects(''), closeMenu()]">
-        <mat-icon class="icon">book</mat-icon>
-        <p>Projetos</p>
-      </button>
+    <!-- Link para home -->
+    <button routerLink="home">
+      <mat-icon class="icon">home</mat-icon>
+      <p>Home</p>
+    </button>
 
-      <!-- Linkis por linguagem -->
-      <button *ngFor="let module of mainCategories" (click)="[goToProjects(module.getName), closeMenu()]">
-        <img class="icon" [src]="module.getIcon" [alt]="module.getName">
-        <p>{{ module.getName }}</p>
-      </button>
-    </nav>
-  </div>
+    <!-- Link para todos os projetos -->
+    <button (click)="goToProjects('')">
+      <mat-icon class="icon">book</mat-icon>
+      <p>Projetos</p>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <!-- Linkis por linguagem -->
+    <button class="sub-item" *ngFor="let module of mainCategories" (click)="goToProjects(module.getName)">
+      <img class="icon" [src]="module.getIcon" [alt]="module.getName">
+      <p>{{ module.getName }}</p>
+    </button>
+  </nav>
 </aside>
