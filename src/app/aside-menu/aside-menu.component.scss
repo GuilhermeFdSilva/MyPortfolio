@@ -9,14 +9,14 @@ div {
   z-index: 5;
   width: 100vw;
   height: $button-height;
-  background-color: $ternary-black;
+  background-color: $secondary-black;
 
   #open-menu-button {
     height: 100%;
     width: $menu-width;
     border-radius: 0px;
     border: none;
-    background-color: $ternary-black;
+    background-color: $secondary-black;
 
     mat-icon {
       font-size: $icon-size;
@@ -41,13 +41,13 @@ aside {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: $ternary-black;
+  background-color: $secondary-black;
   transition: all ease 0.5s;
 
   #close-menu-button {
     width: $menu-width;
     height: $button-height;
-    background-color: $ternary-black;
+    background-color: $secondary-black;
     border-radius: 0px;
     border: none;
     display: none;
@@ -77,7 +77,7 @@ aside {
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      background-color: $ternary-black;
+      background-color: $secondary-black;
       color: $font-color;
       cursor: pointer;
       filter: grayscale(100%);
@@ -101,7 +101,7 @@ aside {
       &:hover {
         width: fit-content;
         min-width: $menu-width;
-        background-color: $secondary-black;
+        background-color: $ternary-black;
         padding-left: 17px;
         filter: grayscale(0%);
 
