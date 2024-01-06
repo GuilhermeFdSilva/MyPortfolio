@@ -23,6 +23,8 @@ import { ContainerRouterComponent } from './container-router/container-router.co
 import { ProjectsComponent } from './projects/projects.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PresentationComponent } from './home/presentation/presentation.component';
+import { CategoriesComponent } from './home/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     ProjectsComponent,
-    DetailsComponent
+    DetailsComponent,
+    PresentationComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
