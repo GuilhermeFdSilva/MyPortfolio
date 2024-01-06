@@ -1,42 +1,17 @@
-<div id="container-footer">
+<!-- Container dos links pessoais -->
+<article id="container-social-links">
 
-  <!-- Container com os links por categoria(titulo) -->
-  <article id="container-links">
+  <!-- Frase de "cirado por" -->
+  <section id="created-by">
+    <h3>Criado por Guilherme França</h3>
+  </section>
 
-    <!-- Cada categoria de links -->
-    <section id="links" *ngFor="let module of languages; let i = index">
-
-      <!-- Area dos links -->
-      <div
-        [ngClass]="i == languages.length -1 && i != 0 && i!= 3 ? 'divider' : (i != 0 && i != 3 ? 'divider divider-vertical' : 'divider-vertical')">
-        <h4 (click)="goToProject(module.getName)">{{ module.getName }}</h4>
-
-        <!-- Links da categoria -->
-        <article *ngFor="let project of projects">
-          <div *ngIf="project.getMainLanguage === module.getName" (click)="goTo(project.getTitle)">
-            {{ project.getTitle }}
-            <mat-divider></mat-divider>
-          </div>
-        </article>
-      </div>
-    </section>
-  </article>
-
-  <!-- Container dos links pessoais -->
-  <article id="container-social-links">
-
-    <!-- Frase de "cirado por" -->
-    <section id="created-by">
-      <h3>Criado por Guilherme França</h3>
-    </section>
-
-    <!-- Lista das redes sociais -->
-    <section id="social-links">
-      <ul>
-        <li *ngFor="let mainLink of mainLinks">
-          <img [src]="mainLink.icon" [alt]="mainLink.description" (click)="goTo(mainLink.link)">
-        </li>
-      </ul>
-    </section>
-  </article>
-</div>
+  <!-- Lista das redes sociais -->
+  <section id="social-links">
+    <ul>
+      <li *ngFor="let mainLink of mainLinks">
+        <img [src]="mainLink.icon" [alt]="mainLink.description" (click)="goTo(mainLink.link)">
+      </li>
+    </ul>
+  </section>
+</article>

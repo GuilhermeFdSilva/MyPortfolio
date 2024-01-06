@@ -1,104 +1,39 @@
 @import '../../assets/css-variables/mainVariables.scss';
 
-#container-footer {
-  box-sizing: border-box;
-  height: fit-content;
-  background-color: $primary-black;
-  z-index: 2;
+#container-social-links {
+  background-color: $ternary-black;
+  width: 100vw;
+  padding: 20px 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 
-  #container-links {
-    max-width: 1140px;
-    padding: 20px;
-    margin: auto;
-    display: flex;
-    row-gap: 30px;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
+  #created-by {
+    text-align: center;
 
-    #links {
-      width: 33.33%;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-
-      div {
-        width: 100%;
-        padding: 20px;
-
-        h4 {
-          color: $primary-red;
-          font-family: $font-family;
-          font-size: $font-median-size;
-          cursor: pointer;
-        }
-
-        article {
-          color: $font-color;
-          font-family: $font-family;
-          font-size: $font-min-size;
-          margin-bottom: 10px;
-          cursor: pointer;
-          transition: all ease 0.1s;
-
-          div {
-            padding: 0;
-          }
-
-          mat-divider {
-            background-color: $font-color;
-            transition: all ease 0.1s;
-          }
-
-          &:hover {
-            color: $low-red;
-
-            mat-divider {
-              background-color: $low-red;
-            }
-          }
-        }
-      }
-
-      .divider {
-        border-left: 1px solid $low-red;
-      }
+    h3 {
+      color: $font-color;
+      font-family: $font-family;
+      margin: 2px;
     }
   }
 
-  #container-social-links {
-    max-width: 1140px;
-    padding: 15px 0;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+  #social-links {
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 10px;
 
-    #created-by {
-      text-align: center;
+      li {
+        list-style: none;
+        height: $icon-size;
+        cursor: pointer;
 
-      h3 {
-        color: $ternary-black;
-        font-family: $font-family;
-        margin: 0;
-      }
-    }
-
-    #social-links {
-      ul {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 10px;
-
-        li {
-          list-style: none;
-          cursor: pointer;
-
-          img {
-            height: 30px;
-          }
+        img {
+          height: $icon-size;
         }
       }
     }
