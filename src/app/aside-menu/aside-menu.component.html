@@ -1,25 +1,27 @@
 <!-- Botão responsivo -->
-<button id="open-menu-button" (click)="toggleMenu()">
-  <mat-icon>menu</mat-icon>
-</button>
+<div>
+  <button id="open-menu-button" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</div>
 
 <!-- Menu lateral -->
 <aside id="aside-menu">
 
   <button id="close-menu-button" (click)="toggleMenu()">
-    <mat-icon>close</mat-icon>  
+    <mat-icon>close</mat-icon>
   </button>
 
   <nav>
 
     <!-- Link para home -->
-    <button routerLink="home">
+    <button routerLink="home" (click)="toggleMenu()">
       <mat-icon class="icon">home</mat-icon>
       <p>Home</p>
     </button>
 
     <!-- Link para todos os projetos -->
-    <button (click)="goToProjects('')">
+    <button (click)="[goToProjects(''), toggleMenu()]">
       <mat-icon class="icon">book</mat-icon>
       <p>Projetos</p>
     </button>
@@ -27,7 +29,7 @@
     <mat-divider></mat-divider>
 
     <!-- Linkis por linguagem -->
-    <button class="sub-item" *ngFor="let module of mainCategories" (click)="goToProjects(module.getName)">
+    <button class="sub-item" *ngFor="let module of mainCategories" (click)="[goToProjects(module.getName), toggleMenu()]">
       <img class="icon" [src]="module.getIcon" [alt]="module.getName">
       <p>{{ module.getName }}</p>
     </button>
