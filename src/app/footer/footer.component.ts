@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataManagerService } from 'src/assets/service/dataManagerService/data-manager.service';
-import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
-import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 
 @Component({
   selector: 'app-footer',
@@ -32,25 +28,8 @@ export class FooterComponent {
       description: "Curriculo"
     }
   ];
-  languages: Array<Language> = [];
-  projects: Array<Project> = [];
-
-  constructor(private router: Router, private dataManagerService: DataManagerService) { }
-
-  ngOnInit(): void {
-    this.dataManagerService.getObservableData.subscribe((loaded) => {
-      if (loaded) {
-        this.languages = this.dataManagerService.getLanguages.filter((language) => language.isMian);
-        this.projects = this.dataManagerService.getProjects;
-      }
-    });
-  }
 
   goTo(link: string): void {
     window.open(link, '_blank');
-  }
-
-  goToProject(route: string) {
-    this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
 }
