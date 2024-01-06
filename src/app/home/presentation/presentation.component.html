@@ -1,0 +1,48 @@
+<article id="presentation">
+
+  <!-- Cabeçalho -->
+  <section id="profile">
+    <img src="https://guilhermefdsilva.github.io/read-db-myPortfolio/foto-de-perfil/MinhaFoto.jpeg"
+      alt="Guilherme França da Silva">
+    <div id="name-info">
+      <h1>Guilherme França da Silva</h1>
+      <h2>Desenvolvedor Full-Stack</h2>
+    </div>
+  </section>
+
+  <section id="text-info">
+    <p> Bem-vindo ao meu portfólio! Me chamo Guilherme, como você pode notar 🧐, mas se quiser pode me chamar de Gui
+      ou até mesmo pelo meu sobrenome, França. </p>
+    <p> Sou um desenvolvedor Full-Stack, atualmente estou cursando Análise e Desenvolvimento de Sistemas, e me
+      aperfeiçoando ainda mais, desenvolvendo projetos como este! </p>
+    <p> Com a programação, foi amor ao primeiro código 💘! </p>
+    <p> Você pode ver um pouco mais sobre as minhas principais stacks abaixo / ao lado. </p>
+    <p> Aqui estão todas as linguagens que em que tenho domínio, você pode clicar nos sticks para mais informações
+      sobre as linguagens: </p>
+
+
+    <!-- Lista de linguagens de programação -->
+    <p class="sub-title">Linguagens:</p>
+    <ul id="languages-list">
+      <li *ngFor="let language of languages">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
+      </li>
+    </ul>
+
+    <!-- Lista de ferramentas de front -->
+    <p class="sub-title">Desenvolvimento Front-end:</p>
+    <ul id="languages-list">
+      <li *ngFor="let language of frontEnd">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
+      </li>
+    </ul>
+
+    <!-- Lista de bancos de dados -->
+    <p class="sub-title">Banco de dados:</p>
+    <ul id="languages-list">
+      <li *ngFor="let language of database">
+        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
+      </li>
+    </ul>
+  </section>
+</article>

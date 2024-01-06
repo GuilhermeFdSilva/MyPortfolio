@@ -1,0 +1,115 @@
+@import '../../../assets/css-variables/mainVariables.scss';
+
+#presentation {
+  height: fit-content;
+  padding: 20px;
+
+  #profile {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 30px;
+
+    img {
+      max-width: 200px;
+      max-height: 200px;
+      border-radius: 50%;
+      border: 1px solid $ternary-red;
+    }
+
+    #name-info {
+
+      h1 {
+        font-family: $font-family;
+        font-size: $font-xlarge-size;
+        color: $primary-red;
+        letter-spacing: 10px;
+        font-weight: bold;
+        text-align: center;
+
+      }
+
+      h2 {
+        margin-bottom: 0;
+        font-family: $font-family;
+        font-size: $font-median-size;
+        color: $ternary-red;
+        letter-spacing: 8px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+
+  #text-info {
+    width: 80%;
+    margin: auto;
+    color: $font-color;
+    font-family: $font-family;
+    font-size: $font-min-size;
+
+    p {
+      margin-bottom: 5px;
+      line-height: $font-median-size;
+    }
+
+    .sub-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 5px;
+
+      li {
+        list-style: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #presentation {
+    #profile {
+
+      img {
+        max-width: 100px;
+        max-height: 100px;
+      }
+
+      #name-info {
+
+        h1 {
+          font-size: $font-median-size;
+          letter-spacing: 5px;
+        }
+
+        h2 {
+          font-size: $font-normal-size;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    #text-info {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  #presentation {
+    padding: 20px 0;
+
+    #profile {
+      img {
+        display: none;
+      }
+    }
+  }
+}
