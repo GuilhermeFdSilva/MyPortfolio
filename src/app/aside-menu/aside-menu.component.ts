@@ -46,7 +46,7 @@ export class AsideMenuComponent {
   toggleMenu(): void {
     let menu = document.getElementById("aside-menu");
     
-    if (menu) {
+    if (menu && window.innerWidth < 800) {
       let list = menu.classList;
 
       if (list.contains("visible")) {
