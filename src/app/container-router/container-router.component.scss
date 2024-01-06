@@ -1,26 +1,12 @@
 @import '../../assets/css-variables/mainVariables.scss';
+@import '../../assets/css-variables/asideMenuVariables.scss';
 
 #background {
-  position: relative;
   background: $primary-black;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    background: linear-gradient(to top, #000000, transparent);
-    z-index: 1;
-  }
+  padding-left: $menu-width;
 
   #container-router {
-    max-width: 1140px;
-    padding: 68px 0;
-    position: relative;
-    margin: auto;
-    z-index: 2;
+    width: 100%;
   }
 }
 
@@ -46,27 +32,9 @@
   opacity: 0;
 }
 
-@media (max-width: 1266px) {
+@media (max-width: 800px) {
   #background {
-    #container-router {
-      width: 90%;
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  #background {
-    background-image: none;
-    background-color: $secondary-black;
-
-    &::before {
-      height: 40px;
-      z-index: 3;
-    }
-    
-    #container-router {
-      width: 100%;
-      padding: 68px 0;
-    }
+    padding-left: 0;
+    padding-top: $button-height;
   }
 }
