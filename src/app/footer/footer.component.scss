@@ -3,7 +3,7 @@
 #container-footer {
   box-sizing: border-box;
   height: fit-content;
-  background-color: $background-primary-color;
+  background-color: $primary-black;
   z-index: 2;
 
   #container-links {
@@ -27,7 +27,7 @@
         padding: 20px;
 
         h4 {
-          color: $primary-color;
+          color: $primary-red;
           font-family: $font-family;
           font-size: $font-median-size;
           cursor: pointer;
@@ -51,17 +51,17 @@
           }
 
           &:hover {
-            color: $accent-color;
+            color: $low-red;
 
             mat-divider {
-              background-color: $accent-color;
+              background-color: $low-red;
             }
           }
         }
       }
 
       .divider {
-        border-left: 1px solid $accent-color;
+        border-left: 1px solid $low-red;
       }
     }
   }
@@ -79,7 +79,7 @@
       text-align: center;
 
       h3 {
-        color: $background-ternary-color;
+        color: $ternary-black;
         font-family: $font-family;
         margin: 0;
       }
@@ -137,7 +137,7 @@
         }
 
         .divider-vertical {
-          border-bottom: 1px solid $accent-color;
+          border-bottom: 1px solid $low-red;
         }
       }
     }

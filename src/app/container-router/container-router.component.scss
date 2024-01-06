@@ -2,9 +2,7 @@
 
 #background {
   position: relative;
-  background-image: url('https://i.ibb.co/mXgW9Hn/fundo.jpg');
-  background-attachment: fixed;
-  background-size: cover;
+  background: $secondary-black;
 
   &::before {
     content: '';
@@ -27,7 +25,7 @@
 }
 
 #loading {
-  background-color: $background-primary-color;
+  background-color: $primary-black;
   position: fixed;
   top: 0;
   left: 0;
@@ -59,7 +57,7 @@
 @media (max-width: 500px) {
   #background {
     background-image: none;
-    background-color: $background-secondary-color;
+    background-color: $secondary-black;
 
     &::before {
       height: 40px;
