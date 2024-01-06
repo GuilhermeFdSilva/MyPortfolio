@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
 
-$primary-color: rgb(255, 0, 0);
-$accent-color: rgb(255, 83, 83);
-$secondary-color: rgb(168, 0, 0);
+$primary-red: #e3492d;
+$secondary-red: #bb3722;
+$ternary-red: #922517;
+$low-red: #de5757;
 
-$background-primary-color: rgb(0, 0, 0);
-$background-secondary-color: rgb(18, 18, 18);
-$background-ternary-color: rgb(71, 71, 71);
+$primary-black: #121212;
+$secondary-black: #0a0a0a;
+$ternary-black: #050505;
+$low-black: #474747;
 
-$font-family: 'IBM Plex Mono',
-monospace;
+$font-family: 'IBM Plex Mono', monospace;
 
-$font-color: rgb(186, 186, 186);
+$font-color: #bababa;
 
 $font-min-size: 14px;
 $font-normal-size: 18px;
