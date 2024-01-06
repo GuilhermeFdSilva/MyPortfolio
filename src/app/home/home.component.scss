@@ -1,182 +1,45 @@
 @import '../../assets/css-variables/mainVariables.scss';
 
-#presentation {
-  background-color: $secondary-black;
-  border: 1px solid $ternary-black;
-  border-radius: 4px;
-  padding: 20px;
+#container-home {
+  min-height: 96vh;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 20px;
 
-  #name-info {
-    text-align: center;
-
-    h1 {
-      font-family: $font-family;
-      font-size: $font-xlarge-size;
-      color: $primary-red;
-      letter-spacing: 10px;
-      font-weight: bold;
-    }
-
-    h2 {
-      font-family: $font-family;
-      letter-spacing: 10px;
-      color: $low-red;
-      margin: 0;
-    }
+  app-presentation,
+  app-categories {
+    width: 50%;
+    min-width: 550px;
   }
 
   mat-divider {
-    background-color: $ternary-black;
-    margin: 20px 0;
+    background: $low-black;
+    height: 56vh;
   }
+}
 
-  #text-info {
-    color: $font-color;
-    font-family: $font-family;
-    font-size: $font-min-size;
-    text-align: center;
+@media (max-width: 1200px) {
+  #container-home {
+    flex-wrap: wrap;
 
-    p {
-      margin: 0;
-      line-height: $font-median-size;
+    mat-divider {
+      display: none;
     }
 
-    .title {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    ul {
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 5px;
-
-      li {
-        list-style: none;
-        cursor: pointer;
-      }
+    app-presentation,
+    app-categories {
+      width: 100%;
     }
   }
 }
 
-#categories {
-  background-color: $secondary-black;
-  border: 1px solid $ternary-black;
-  border-radius: 4px;
-  padding: 20px;
-  margin-top: 20px;
+@media (max-width: 800px) {
+  #container-home {
 
-  #categories-desc {
-    text-align: center;
-
-    h2 {
-      font-family: $font-family;
-      color: $primary-red;
-      font-size: $font-large-size;
-      font-weight: bold;
-      letter-spacing: 10px;
-    }
-
-    h3 {
-      font-family: $font-family;
-      color: $low-red;
-      font-size: $font-median-size;
-      letter-spacing: 10px;
-      margin: 0;
-    }
-  }
-
-  mat-divider {
-    background-color: $ternary-black;
-    margin: 20px 0;
-  }
-
-  #categories-itens {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    mat-expansion-panel {
-      background-color: $ternary-black;
-
-      mat-expansion-panel-header {
-        mat-panel-title {
-          img {
-            height: 38px;
-            width: 38px;
-          }
-
-          p {
-            margin: 0 0 0 20px;
-            font-family: $font-family;
-            color: $font-color;
-            font-size: $font-median-size;
-          }
-        }
-      }
-
-      div {
-        p {
-          font-family: $font-family;
-          color: $font-color;
-          font-size: $font-min-size;
-          line-height: $font-median-size;
-        }
-
-        button {
-          border: none;
-          background-color: $secondary-red;
-          height: 48px;
-          width: 100%;
-          border-radius: 4px;
-          font-family: $font-family;
-          color: $font-color;
-          font-size: $font-normal-size;
-          cursor: pointer;
-          transition: all ease 0.3s;
-
-          &:hover {
-            background-color: $primary-red;
-            transform: scale(1.01);
-            font-weight: 600;
-          }
-        }
-      }
-
-      &:focus,
-      :target,
-      :hover {
-        background-color: $ternary-black;
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  #presentation,
-  #categories {
-    border: none;
-  }
-}
-
-@media (max-width: 280px) {
-  #presentation {
-    #name-info {
-      h1,
-      h2 {
-        letter-spacing: 5px;
-      }
-    }
-  }
-
-  #categories {
-    #categories-desc {
-      h2,
-      h3 {
-        letter-spacing: 5px;
-      }
+    app-presentation,
+    app-categories {
+      min-width: 0;
     }
   }
 }

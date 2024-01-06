@@ -36,4 +36,8 @@ export class HomeComponent {
   goToPorjects(route: string) {
     this.router.navigate([`/projetos/${route.toLowerCase()}`]);
   }
+
+  onGoTo(link: string) {
+    this.goTo(link);
+  }
 }

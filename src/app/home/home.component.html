@@ -1,76 +1,14 @@
-<!-- Apresnetação pessoal -->
-<article id="presentation">
+<div id="container-home">
+  <app-presentation 
+    (goTo)="onGoTo($event)"
+    [languages]="languages"
+    [frontEnd]="frontEnd"
+    [database]="database">
+  </app-presentation>
 
-  <!-- Cabeçalho -->
-  <section id="name-info">
-    <h1>Guilherme França</h1>
-    <h2>Desenvolvedor Full Stack</h2>
-  </section>
+  <mat-divider vertical></mat-divider>
 
-  <mat-divider></mat-divider>
-
-  <section id="text-info">
-    <p>Olá meu nome é Guilherme França! Mas podem me chamar de Gui ou França. 👋🏽</p>
-    <p>Sou estudante de Analise e Desenvolvimento de Sistemas na faculdade Campus Salles. 👨🏽‍💻</p>
-    <p>Minha maior paixão é resolver problemas de lógica. 🤔</p>
-
-    <!-- Lista de linguagens de programação -->
-    <p class="title">Linguagens:</p>
-    <ul id="languages-list">
-      <li *ngFor="let language of languages">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
-      </li>
-    </ul>
-
-    <!-- Lista de ferramentas de front -->
-    <p class="title">Desenvolvimento Front-end:</p>
-    <ul id="languages-list">
-      <li *ngFor="let language of frontEnd">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
-      </li>
-    </ul>
-
-    <!-- Lista de bancos de dados -->
-    <p class="title">Banco de dados:</p>
-    <ul id="languages-list">
-      <li *ngFor="let language of database">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="goTo(language.getLink)">
-      </li>
-    </ul>
-  </section>
-</article>
-
-<!-- Categorias explicadas -->
-<article id="categories">
-
-  <!-- Cabeçalho -->
-  <section id="categories-desc">
-    <h2>Principais</h2>
-    <h3>favoritas 😳</h3>
-  </section>
-
-  <mat-divider></mat-divider>
-
-  <section id="categories-itens">
-
-    <!-- Paineis expansivos -->
-    <mat-expansion-panel *ngFor="let module of mainCategories">
-
-      <!-- Cabeçalho painel expansivo -->
-      <mat-expansion-panel-header>
-
-        <!-- Titulo painel expansivo -->
-        <mat-panel-title>
-          <img [src]="module.getIcon" [alt]="module.getName">
-          <p>{{ module.getName }}</p>
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
-      <!-- Conteúdos painel expansivo -->
-      <div>
-        <p>{{ module.getDesc }}</p>
-        <button (click)="goToPorjects(module.getName)">Meus projetos com {{ module.getName }}</button>
-      </div>
-    </mat-expansion-panel>
-  </section>
-</article>
+  <app-categories
+    [mainCategories]="mainCategories">
+  </app-categories>
+</div>
