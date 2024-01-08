@@ -97,6 +97,7 @@
         padding: 10px 40px;
 
         .item-title {
+          padding: 0 0 15px 35px;
           display: flex;
           align-items: center;
           gap: 20px;
@@ -120,7 +121,7 @@
         button {
           height: $button-height;
           width: 100%;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
           border-radius: 2px;
           border: none;
           background: $ternary-red;
@@ -131,6 +132,42 @@
 
           &:hover {
             background: $secondary-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #categories {
+    #categories-desc {
+      h2 {
+        font-size: $font-normal-size;
+        letter-spacing: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  #categories {
+    padding: 20px 0;
+
+    #container-categories {
+      #itens {
+        div {
+          padding: 10px 15px;
+
+          .item-title {
+            padding: 0 0 15px 0;
+            justify-content: center;
+          }
+
+          button {
+            font-size: $font-min-size;
+            height: fit-content;
+            min-height: 48px;
           }
         }
       }
