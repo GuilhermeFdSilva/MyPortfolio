@@ -1,7 +1,7 @@
 @import '../../assets/css-variables/mainVariables.scss';
 
 #container-home {
-  min-height: 96vh;
+  min-height: calc(100vh - $footer-height);
   display: flex;
   align-items: center;
   gap: 5px;
