@@ -38,7 +38,7 @@ export class AsideMenuComponent {
   ngOnInit(): void {
     this.dataManagerService.getObservableData.subscribe((loaded) => {
       if (loaded) {
-        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMain);
       }
     });
   }

@@ -24,7 +24,7 @@ export class HomeComponent {
         this.languages = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'PL');
         this.frontEnd = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'FE');
         this.database = this.dataManagerService.getLanguages.filter((lenguage) => lenguage.getType === 'DB');
-        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMian);
+        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMain);
       }
     });
   }

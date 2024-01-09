@@ -48,7 +48,7 @@ export class Language {
     return this.link;
   }
 
-  get isMian(): boolean {
+  get isMain(): boolean {
     return this.main;
   }
 
