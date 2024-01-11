@@ -2,11 +2,20 @@
 
   <!-- Cabeçalho -->
   <section id="profile">
-    <img src="https://guilhermefdsilva.github.io/read-db-myPortfolio/foto-de-perfil/MinhaFoto.jpeg"
-      alt="Guilherme França da Silva">
-    <div id="name-info">
-      <h1>Guilherme França da Silva</h1>
-      <h2>Desenvolvedor Full-Stack</h2>
+    <div id="badge">
+      <img src="https://guilhermefdsilva.github.io/read-db-myPortfolio/foto-de-perfil/MinhaFoto.jpeg"
+        alt="Guilherme França da Silva">
+      <div id="name-info">
+        <h1>Guilherme França da Silva</h1>
+        <h2>Desenvolvedor Full-Stack</h2>
+      </div>
+    </div>
+    <div id="social-links">
+      <ul>
+        <li *ngFor="let mainLink of mainLinks">
+          <img [src]="mainLink.icon" [alt]="mainLink.description" (click)="navigate(mainLink.link)">
+        </li>
+      </ul>
     </div>
   </section>
 
