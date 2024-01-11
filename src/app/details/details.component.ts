@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
@@ -10,7 +10,7 @@ import { DataManagerService } from './../../assets/service/dataManagerService/da
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, AfterViewInit {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
 
@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
           const projectFind = this.dataManagerService.getProjects.find((project) => project.getId == Number.parseInt(id));
           this.project = projectFind ? projectFind : new Project();
 
-          this.title.setTitle(`Detalhes ${this.project.getTitle ?? ''}`);
+          this.title.setTitle(this.project.getTitle ?? '');
 
           const readmeFind = this.dataManagerService.getReadmeList.find((readme) => readme.getProjectName === this.project.getNameGH);
 

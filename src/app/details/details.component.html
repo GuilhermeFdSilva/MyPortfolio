@@ -1,6 +1,7 @@
 <article id="project-info">
   <section id="title">
     <h1>{{ project.getTitle }}</h1>
+    <p>{{ project.getDesc }}</p>
   </section>
 
   <mat-divider></mat-divider>
@@ -16,10 +17,10 @@
 
     <div id="content-readme" [innerHTML]="readmeContent">
     </div>
-  </section>
 
-  <section id="access">
-    <button (click)="goTo(project.getLinkGH)">GitHub</button>
-    <button *ngIf="project.getLinkPG !== ''" (click)="goTo(project.getLinkPG)">Acessar</button>
+    <section id="access">
+      <button (click)="goTo(project.getLinkGH)">GitHub</button>
+      <button *ngIf="project.getLinkPG !== ''" (click)="goTo(project.getLinkPG)">Acessar</button>
+    </section>
   </section>
 </article>
