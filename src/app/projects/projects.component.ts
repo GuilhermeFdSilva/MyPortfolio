@@ -2,7 +2,7 @@ import { DataManagerService } from 'src/assets/service/dataManagerService/data-m
 import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({

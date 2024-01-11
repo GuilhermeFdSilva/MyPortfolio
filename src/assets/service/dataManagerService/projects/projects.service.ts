@@ -9,7 +9,7 @@ export class ProjectsService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Project>> {
-    return this.httpClient.get<Array<Project>>("https://json-server-my-portfolio.vercel.app/projects");
+    return this.httpClient.get<Array<Project>>('https://json-server-my-portfolio.vercel.app/projects');
   }
 }
 

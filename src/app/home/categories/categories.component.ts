@@ -13,7 +13,7 @@ export class CategoriesComponent {
     let target = document.getElementById(id);
 
     if (target) {
-      target.scrollIntoView({behavior: "smooth"});
+      target.scrollIntoView({behavior: 'smooth'});
     }
   }
 }

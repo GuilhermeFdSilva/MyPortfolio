@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
@@ -10,7 +10,7 @@ import { DataManagerService } from './../../assets/service/dataManagerService/da
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
 

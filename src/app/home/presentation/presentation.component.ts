@@ -13,7 +13,7 @@ export class PresentationComponent {
 
   @Output() goTo = new EventEmitter<any>();
 
-  stackLocation: string = window.innerWidth > 800 ? "ao lado" : "abaixo";
+  stackLocation: string = window.innerWidth > 800 ? 'ao lado' : 'abaixo';
 
   navigate(link: string): void {
     this.goTo.emit(link);

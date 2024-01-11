@@ -3,13 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LanguagesService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Language>> {
-    return this.httpClient.get<Array<Language>>("https://json-server-my-portfolio.vercel.app/languages");
+    return this.httpClient.get<Array<Language>>('https://json-server-my-portfolio.vercel.app/languages');
   }
 }
 

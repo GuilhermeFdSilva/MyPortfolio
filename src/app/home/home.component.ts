@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataManagerService } from 'src/assets/service/dataManagerService/data-manager.service';
 import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
@@ -8,7 +8,7 @@ import { Language } from 'src/assets/service/dataManagerService/languages/langua
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   languages: Array<Language> = [];
   frontEnd: Array<Language> = [];
   database: Array<Language> = [];
