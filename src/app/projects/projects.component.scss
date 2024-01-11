@@ -1,240 +1,31 @@
 @import '../../assets/css-variables/mainVariables.scss';
 
-#title {
-  background-color: $secondary-black;
-  border: 1px solid $ternary-black;
-  border-radius: 4px;
-  padding: 20px;
+#container-projects {
+  min-height: calc(100vh - $footer-height);
+  padding: 0 20px;
 
-  .text-title {
-    text-align: center;
+  mat-icon {
+    position: fixed;
+    right: -100px;
+    bottom: 20px;
+    z-index: 60;
+    padding: 10px;
+    border-radius: 5px 35% 5px 35%;
+    background-color: $secondary-red;
+    font-size: $icon-size;
+    color: $font-color;
+    height: $icon-size;
+    width: $icon-size;
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+    transition: right ease 0.7s;
 
-    h2 {
-      color: $primary-red;
-      font-family: $font-family;
-      font-size: $font-xlarge-size;
-    }
-
-    p {
-      color: $font-color;
-      font-family: $font-family;
-      font-size: $font-min-size;
-      line-height: $font-large-size;
-    }
-  }
-
-  mat-divider {
-    background-color: $ternary-black;
-    margin-bottom: 12px;
-  }
-
-  #filters {
-    padding: 0 20px;
-
-    div {
-      h3 {
-        color: $font-color;
-        font-family: $font-family;
-        font-size: $font-normal-size;
-        margin: 0;
-      }
-
-      ul {
-        min-height: 38px;
-        margin: 10px 0;
-        padding-left: 20px;
-        display: flex;
-        flex-wrap: wrap;
-
-        li {
-          list-style: none;
-          height: 28px;
-          margin: 0 10px 10px 0;
-          position: relative;
-
-          img {
-            cursor: pointer;
-          }
-
-          mat-icon {
-            height: $font-normal-size;
-            width: $font-normal-size;
-            position: absolute;
-            top: 0;
-            right: 0;
-            transform: translate(50%, -50%);
-            font-size: $font-normal-size;
-            font-weight: bolder;
-            color: $secondary-red;
-            transition: all ease 0.3s;
-            cursor: pointer;
-          }
-
-          .disabled {
-            filter: grayscale(100%);
-            cursor: default;
-          }
-
-          &:hover {
-            mat-icon {
-              color: $primary-red;
-            }
-          }
-        }
-
-        .main {
-          img {
-            box-shadow: 0px 0px 7px 3px rgba(255, 0, 0, 0.75);
-          }
-        }
-      }
-    }
-  }
-}
-
-#project-list {
-  margin-top: 5px;
-  background-color: $secondary-black;
-  border: 1px solid $ternary-black;
-  border-radius: 4px;
-  padding: 20px;
-
-  .text-project-list {
-    text-align: center;
-
-    h2 {
-      color: $primary-red;
-      font-family: $font-family;
-      font-size: $font-xlarge-size;
-      margin-bottom: 12px;
-    }
-
-    p {
-      color: $font-color;
-      font-family: $font-family;
-      font-size: $font-min-size;
-      line-height: $font-large-size;
+    &:hover {
+      background-color: $primary-red;
     }
   }
 
-  #list-divider {
-    background-color: $ternary-black;
-    margin-bottom: 12px;
-  }
-
-  #container-list {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    mat-card {
-      width: calc(33.33% - 10px);
-      height: 450px;
-      background-color: $ternary-black;
-
-      .card-img {
-        height: 200px;
-        overflow: hidden;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        display: flex;
-        align-items: center;
-        position: relative;
-
-        .img-background {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          filter: blur(3px);
-          z-index: 1;
-        }
-
-        img {
-          width: 100%;
-          z-index: 2;
-        }
-      }
-
-      mat-card-content {
-        height: 200px;
-        padding: 10px;
-
-        h4 {
-          color: $font-color;
-          font-family: $font-family;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-        }
-
-        p {
-          color: $font-color;
-          font-family: $font-family;
-          font-size: $font-min-size;
-          line-height: $font-large-size;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-line-clamp: 5;
-          -webkit-box-orient: vertical;
-          white-space: normal;
-          text-overflow: ellipsis;
-        }
-      }
-
-      mat-card-actions {
-        height: 50px;
-        min-height: 50px;
-        padding: 0 10px;
-        align-items: start;
-        gap: 5px;
-
-        button {
-          width: 100%;
-          height: 40px;
-          color: $font-color;
-          letter-spacing: 3px;
-          border: none;
-          border-radius: 2px;
-          background-color: $secondary-red;
-          cursor: pointer;
-          transition: all ease 0.3s;
-
-          &:hover {
-            background-color: $primary-red;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 850px) {
-  #project-list {
-    #container-list {
-      mat-card {
-        width: 100%;
-
-        .card-img {
-          justify-content: center;
-
-          img {
-            height: 100%;
-            width: auto;
-            z-index: 2;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  #title,
-  #project-list {
-    border: none;
+  .visible {
+    right: 20px;
   }
 }

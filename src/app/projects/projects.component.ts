@@ -10,129 +10,65 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   languages: Array<Language> = [];
   projects: Array<Project> = [];
-  mainLanguage: Language = new Language().noName();
-  languagesFilter: Array<any> = [];
-  projectsFilter: Array<Project> = [];
+  filteredProjects: Array<Project> = [];
+  route: string = '';
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private dataManagerService: DataManagerService, private title: Title) { }
+  constructor(private activatedRoute: ActivatedRoute, private dataManagerService: DataManagerService, private title: Title) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    this.activatedRoute.paramMap.subscribe((param) => {
-      const name = param.get('module') ?? '';
+    window.addEventListener('scroll', () => {
+      let button = document.getElementById('to-top');
 
-      this.title.setTitle(`Projetos ${name ? ' - ' + name : ''}`)
-
-      this.dataManagerService.getObservableData.subscribe((loaded) => {
-        this.initVariables(name);
-      });
-    });
-  }
-
-  goToDetails(projectId: number): void {
-    this.router.navigate([`detalhes/${projectId}`]);
-  }
-
-  addFilter(index: number): void {
-    const language = this.languagesFilter[index];
-
-    if (language.match) {
-      language.active = true;
-      this.languagesFilter[index] = language;
-
-      this.findMatches();
-    }
-  }
-
-  removeFilter(language: Language): void {
-    if (language.getName === this.mainLanguage.getName) {
-      this.router.navigate(['projetos']);
-    }
-
-    this.languagesFilter.map((object) => {
-      if (object.language.getName === language.getName) {
-        object.active = false;
+      if (button) {
+        if (this.headIsVisible()) {
+          button.classList.remove('visible');
+        } else {
+          button.classList.add('visible');
+        }
       }
     });
-    this.findMatches();
-  }
 
-  initVariables(name: string): void {
-    this.mainLanguage = new Language().noName();
-    this.languagesFilter = [];
+    this.activatedRoute.paramMap.subscribe((param) => {
+      this.route = param.get('module') ?? '';
 
-    this.languages = this.dataManagerService.getLanguages;
-    this.projects = this.dataManagerService.getProjects;
+      this.title.setTitle(`Projetos ${this.route ? ' - ' + this.route : ''}`)
 
-    const mainLanguageTest = this.dataManagerService.getLanguages.find((language) => language.getName.toLocaleLowerCase() === name);
-
-    if (mainLanguageTest) {
-      this.mainLanguage = mainLanguageTest;
-      this.initFilters(this.mainLanguage.getName);
-      this.findMatches();
-    } else {
-      this.mainLanguage = new Language();
-      this.initFilters(this.mainLanguage.getName);
-      this.findMatches();
-    }
-  }
-
-  initFilters(name: string): void {
-    if (name === undefined) {
-      this.languages.forEach((language) => {
-        this.languagesFilter.push({ language: language, match: true, active: false });
-      });
-    } else {
-      this.languages.forEach((language) => {
-        if (name === language.getName) {
-          this.languagesFilter.splice(0, 0, { language: language, match: false, active: true });
-        } else {
-          this.languagesFilter.push({ language: language, match: true, active: false });
+      this.dataManagerService.getObservableData.subscribe((loaded) => {
+        if (loaded) {
+          this.languages = this.dataManagerService.getLanguages;
+          this.projects = this.dataManagerService.getProjects;
         }
       });
-    }
-  }
-
-  findMatches(): void {
-    this.projectsFilter = [];
-
-    let activeLanguages = this.languagesFilter
-      .filter((object) => object.active)
-      .map((object) => object.language.getName);
-
-    let languagesMatches = new Array<string>();
-
-    if (activeLanguages.length > 0) {
-      this.projects.forEach((project) => {
-        let includesAll = activeLanguages.every((language) => project.getTools.includes(language))
-
-        if (includesAll) {
-          this.projectsFilter.push(project)
-
-          project.getTools.forEach((tool) => {
-            activeLanguages.forEach((languageName) => {
-              if (
-                tool !== languageName &&
-                !languagesMatches.includes(tool) &&
-                !activeLanguages.includes(tool)
-              ) {
-                languagesMatches.push(tool);
-              }
-            });
-          });
-        }
-      });
-    } else {
-      this.languages.forEach((language) => languagesMatches.push(language.getName));
-      this.projectsFilter = this.projects;
-    }
-
-    this.languagesFilter.forEach((object) => {
-      object.match = languagesMatches.some((languageName) => object.language.getName === languageName);
     });
+  }
+
+  updateFilteredProjects(listProjects: Array<Project>): void {
+    this.filteredProjects = listProjects;
+  }
+
+  toTop(): void {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  headIsVisible(): boolean {
+    let head = document.getElementById('head');
+
+    if (head) {
+      let elementArea = head.getBoundingClientRect();
+      let windowHeight = window.innerHeight;
+
+      return (elementArea.top <= windowHeight && elementArea.bottom >= 0);
+    }
+
+    return false;
   }
 }

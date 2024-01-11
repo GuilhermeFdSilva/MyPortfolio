@@ -1,86 +1,13 @@
-<article id="title">
-
-  <!-- Titulo ver todos os projetos -->
-  <section class="text-title" *ngIf="mainLanguage.getName === undefined">
-    <h2>Todos os projetos</h2>
-    <p>
-      Aqui você vai encontrar todos os projetos que já fiz em todas as linguagens que conheço, você pode filtrar de
-      acordo com as ferramentas
-      utilizadas.
-    </p>
-  </section>
-
-  <!-- Titulo projeto por modulo -->
-  <section class="text-title" *ngIf="mainLanguage.getName !== undefined">
-    <h2>{{ mainLanguage.getName }}</h2>
-    <p>{{ mainLanguage.getDesc }}</p>
-  </section>
-
-  <mat-divider></mat-divider>
-
-  <!-- Filtros aplicados -->
-  <section id="filters">
-    <div>
-      <h3>Filtrar por:</h3>
-      <ul>
-        <div *ngFor="let filter of languagesFilter" (click)="removeFilter(filter.language)">
-          <li class="selected-filter" *ngIf="filter.active"
-            [ngClass]="filter.language.getName === mainLanguage.getName ? 'main' : ''">
-            <img [src]="filter.language.getStick" [alt]="filter.language.getName">
-            <mat-icon>close</mat-icon>
-          </li>
-        </div>
-      </ul>
-    </div>
-
-    <!-- Lista de filtros disponiveis -->
-    <div>
-      <h3>Filtros:</h3>
-      <ul>
-        <li *ngFor="let filter of languagesFilter; let i = index" (click)="addFilter(i)">
-          <img [ngClass]="filter.match ? '' : 'disabled'" [src]="filter.language.getStick"
-            [alt]="filter.language.getName">
-        </li>
-      </ul>
-    </div>
-  </section>
-</article>
-
-<article id="project-list">
-
-  <!-- Titulo lista de projetos vazio -->
-  <section class="text-project-list" *ngIf="projectsFilter.length == 0">
-    <h2>Nenhum Projeto encontrado</h2>
-    <p>Talvez o projeto que procura não esteja listado, ou disponível no meu GitHub. ¯\_(ツ)_/¯</p>
-  </section>
+<div id="container-projects">
+  <app-head id="head"
+  [languages]="languages"
+  [projects]="projects"
+  [filteredProjects]="filteredProjects"
+  [activatedRoute]="route"
+  (listProjects)="updateFilteredProjects($event)"></app-head>
   
-  <!-- Titulo lista de projetos encontrados -->
-  <section class="text-project-list" *ngIf="projectsFilter.length != 0">
-    <h2>Projetos</h2>
-  </section>
+  <app-list
+  [filteredProjects]="filteredProjects"></app-list>
 
-  <mat-divider id="list-divider" *ngIf="projectsFilter.length != 0"></mat-divider>
-
-  <!-- Container da lista -->
-  <section id="container-list">
-
-    <!-- Card de apresentação do projeto -->
-    <mat-card *ngFor="let project of projectsFilter">
-
-      <!-- Imagem do card -->
-      <div class="card-img">
-        <img class="img-background" [src]="project.getImg" [alt]="project.getTitle">
-        <img [src]="project.getImg" [alt]="project.getTitle">
-      </div>
-
-      <mat-card-content>
-        <h4>{{ project.getTitle }}</h4>
-        <p>{{ project.getDesc }}</p>
-      </mat-card-content>
-    
-      <mat-card-actions>
-        <button (click)="goToDetails(project.getId)">Ver mais</button>
-      </mat-card-actions>
-    </mat-card>
-  </section>
-</article>
+  <mat-icon id="to-top" (click)="toTop()">arrow_upward</mat-icon>
+</div>
