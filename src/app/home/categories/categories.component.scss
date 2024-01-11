@@ -129,9 +129,10 @@
           font-size: $font-normal-size;
           color: $font-color;
           transition: all ease 0.3s;
+          cursor: pointer;
 
           &:hover {
-            background: $secondary-red;
+            background: $primary-red;
           }
         }
       }

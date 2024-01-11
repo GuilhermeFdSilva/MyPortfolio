@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 
 @Component({
@@ -8,6 +9,12 @@ import { Language } from 'src/assets/service/dataManagerService/languages/langua
 })
 export class CategoriesComponent {
   @Input() mainCategories: Array<Language> = [];
+
+  constructor(private router: Router) { }
+  
+  goToProjects(name: string): void {
+    this.router.navigate([`projetos/${name}`]);
+  }
 
   scroll(id: string): void {
     let target = document.getElementById(id);

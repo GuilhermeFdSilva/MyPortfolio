@@ -23,7 +23,7 @@
           <h2>{{ mainCategory.getName }}</h2>
         </div>
         <p>{{mainCategory.getDesc}}</p>
-        <button>Meus projetos {{ mainCategory.getName }}</button>
+        <button (click)="goToProjects(mainCategory.getName)">Meus projetos {{ mainCategory.getName }}</button>
         <mat-divider *ngIf="i < mainCategories.length - 1"></mat-divider>
       </div>
     </section>
