@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges, SimpleChanges, EventEmitter, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, Input, Output, OnChanges, SimpleChanges, EventEmitter, ChangeDetectorRef, ElementRef, HostListener } from '@angular/core';
 import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 
@@ -11,7 +11,7 @@ export class HeadComponent implements OnChanges {
   @Input() languages: Array<Language> = [];
   @Input() projects: Array<Project> = [];
   @Input() filteredProjects: Array<Project> = [];
-  @Input() activatedRoute: string = "";
+  @Input() activatedRoute: string = '';
 
   @Output() listProjects = new EventEmitter<Array<Project>>()
 
@@ -20,19 +20,19 @@ export class HeadComponent implements OnChanges {
   categories: Array<any> = [
     {
       category: 'PL',
-      title: "Linguagens de programação"
+      title: 'Linguagens de programação'
     },
     {
       category: 'FE',
-      title: "Front-End"
+      title: 'Front-End'
     },
     {
       category: 'DB',
-      title: "Bancos de dados"
+      title: 'Bancos de dados'
     }
   ];
 
-  constructor(private cdRef: ChangeDetectorRef) { }
+  constructor(private cdRef: ChangeDetectorRef, private elementRef: ElementRef) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     for (let variableModify in changes) {
@@ -45,14 +45,29 @@ export class HeadComponent implements OnChanges {
     }
   }
 
+  @HostListener('document:click' , ['$event'])
+  @HostListener('document:touch' , ['$event'])
+  clickOutside(event: Event): void {
+    let menuFilters = this.elementRef.nativeElement.querySelector('#filters');
+    let containerFilters = this.elementRef.nativeElement.querySelector('#container-filters')
+
+    if (menuFilters && containerFilters) {
+      if(!menuFilters.contains(event.target)){
+        if(containerFilters.classList.contains('visible')){
+          this.toggleVisible();
+        }
+      }
+    }
+  }
+
   toggleVisible(): void {
-    let menu = document.getElementById("container-filters");
+    let menu = this.elementRef.nativeElement.querySelector('#container-filters');
 
     if (menu) {
-      if (menu.classList.contains("visible")) {
-        menu.classList.remove("visible");
+      if (menu.classList.contains('visible')) {
+        menu.classList.remove('visible');
       } else {
-        menu.classList.add("visible");
+        menu.classList.add('visible');
       }
     }
   }
