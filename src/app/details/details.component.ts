@@ -31,7 +31,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
           const projectFind = this.dataManagerService.getProjects.find((project) => project.getId == Number.parseInt(id));
           this.project = projectFind ?? new Project();
 
-          const readmeBase64 = btoa(this.project.getReadme);
+          const readmeBase64 = new TextDecoder('utf-8').decode(Uint8Array.from(atob(this.project.getReadme), c => c.charCodeAt(0)));
 
           this.readmeContent = readmeBase64 ? marked(readmeBase64): '';
 
