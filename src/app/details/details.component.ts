@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
@@ -14,7 +14,11 @@ export class DetailsComponent implements OnInit, AfterViewInit {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
 
-  constructor(private activatedRoute: ActivatedRoute, private dataManagerService: DataManagerService, private title: Title) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private dataManagerService: DataManagerService,
+    private title: Title,
+    private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -25,17 +29,10 @@ export class DetailsComponent implements OnInit, AfterViewInit {
       this.dataManagerService.getObservableData.subscribe((loaded) => {
         if (loaded) {
           const projectFind = this.dataManagerService.getProjects.find((project) => project.getId == Number.parseInt(id));
-          this.project = projectFind ? projectFind : new Project();
+          this.project = projectFind ?? new Project();
+          this.readmeContent = this.project.getReadme ? marked(this.project.getReadme): '';
 
           this.title.setTitle(this.project.getTitle ?? '');
-
-          const readmeFind = this.dataManagerService.getReadmeList.find((readme) => readme.getProjectName === this.project.getNameGH);
-
-          if (readmeFind) {
-            this.readmeContent = marked(readmeFind.getProjectReadme);
-          } else {
-            this.readmeContent = '';
-          }
         }
       });
     });
@@ -43,7 +40,7 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      const divContainer = document.querySelector('#content-readme');
+      const divContainer = this.elementRef.nativeElement.querySelector('#content-readme');
 
       if (divContainer) {
         const elements = divContainer.querySelectorAll('code');

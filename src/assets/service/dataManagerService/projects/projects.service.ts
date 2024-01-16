@@ -9,20 +9,21 @@ export class ProjectsService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Project>> {
-    return this.httpClient.get<Array<Project>>('https://json-server-my-portfolio.vercel.app/projects');
+    return this.httpClient.get<Array<Project>>('https://api.francaguilherme.com.br/projects');
   }
 }
 
 export class Project {
   private id: number;
   private title: string;
-  private nameGH: string;
-  private img: string;
-  private desc: string;
-  private mainLanguage: string;
+  private image: string;
+  private description: string;
+  private main_language: string;
   private tools: Array<string>;
-  private linkGH: string;
-  private linkPG: string;
+  private readme: string;
+  private likes: number;
+  private link_gh: string;
+  private link_pg: string;
 
   constructor() { }
 
@@ -34,31 +35,35 @@ export class Project {
     return this.title;
   }
 
-  get getNameGH(): string {
-    return this.nameGH;
+  get getImage(): string {
+    return this.image;
   }
 
-  get getImg(): string {
-    return this.img;
-  }
-
-  get getDesc(): string {
-    return this.desc;
+  get getDescription(): string {
+    return this.description;
   }
 
   get getMainLanguage(): string {
-    return this.mainLanguage;
+    return this.main_language;
   }
 
   get getTools(): Array<string> {
     return this.tools;
   }
 
+  get getReadme(): string {
+    return this.readme;
+  }
+
+  get getLikes(): number {
+    return this.likes;
+  }
+
   get getLinkGH(): string {
-    return this.linkGH;
+    return this.link_gh;
   }
 
   get getLinkPG(): string {
-    return this.linkPG;
+    return this.link_pg;
   }
 }

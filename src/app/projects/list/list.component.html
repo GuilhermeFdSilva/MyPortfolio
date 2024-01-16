@@ -12,13 +12,13 @@
 
     <!-- Imagem do card -->
     <div class="card-img">
-      <img class="img-background" [src]="project.getImg" [alt]="project.getTitle">
-      <img [src]="project.getImg" [alt]="project.getTitle">
+      <img class="img-background" [src]="project.getImage" [alt]="project.getTitle">
+      <img [src]="project.getImage" [alt]="project.getTitle">
     </div>
 
     <mat-card-content>
       <h4>{{ project.getTitle }}</h4>
-      <p>{{ project.getDesc }}</p>
+      <p>{{ project.getDescription }}</p>
     </mat-card-content>
 
     <mat-card-actions>

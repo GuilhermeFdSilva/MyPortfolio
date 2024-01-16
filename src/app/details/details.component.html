@@ -1,13 +1,13 @@
 <article id="project-info">
   <section id="title">
     <h1>{{ project.getTitle }}</h1>
-    <p>{{ project.getDesc }}</p>
+    <p>{{ project.getDescription }}</p>
   </section>
 
   <mat-divider></mat-divider>
 
   <section id="image">
-    <img [src]="project.getImg" [alt]="project.getTitle">
+    <img [src]="project.getImage" [alt]="project.getTitle">
   </section>
 
   <section id="readme" *ngIf="readmeContent !== ''">

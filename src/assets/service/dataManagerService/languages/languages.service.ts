@@ -9,13 +9,13 @@ export class LanguagesService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Language>> {
-    return this.httpClient.get<Array<Language>>('https://json-server-my-portfolio.vercel.app/languages');
+    return this.httpClient.get<Array<Language>>('https://api.francaguilherme.com.br/languages');
   }
 }
 
 export class Language {
   private name: string;
-  private desc: string;
+  private description: string;
   private type: string;
   private icon: string;
   private stick: string;
@@ -29,7 +29,7 @@ export class Language {
   }
 
   get getDesc(): string {
-    return this.desc;
+    return this.description;
   }
 
   get getType(): string {
