@@ -13,6 +13,7 @@ import { DataManagerService } from './../../assets/service/dataManagerService/da
 export class DetailsComponent implements OnInit, AfterViewInit {
   project: Project = new Project();
   readmeContent: string | Promise<string>;
+  liked: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -56,6 +57,16 @@ export class DetailsComponent implements OnInit, AfterViewInit {
         });
       }
     }, 500);
+  }
+
+  toggleLike(): void {
+    if (this.liked) {
+      this.dataManagerService.dislikeProject(this.project);
+      this.liked = false;
+    } else if (!this.liked) {
+      this.dataManagerService.likeProject(this.project);
+      this.liked = true;
+    }
   }
 
   goTo(link: string) {
