@@ -11,6 +11,14 @@ export class ProjectsService {
   get getData(): Observable<Array<Project>> {
     return this.httpClient.get<Array<Project>>('https://api.francaguilherme.com.br/projects');
   }
+ 
+  likeProject(project: Project): Observable<Project> {
+    return this.httpClient.put<Project>('https://api.francaguilherme.com.br/admin/projects/like', project);
+  }
+
+  dislikeProject(project: Project): Observable<Project> {
+    return this.httpClient.put<Project>("https://api.francaguilherme.com.br/admin/projects/dislike", project);
+  }
 }
 
 export class Project {
