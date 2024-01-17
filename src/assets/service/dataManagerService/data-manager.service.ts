@@ -46,4 +46,28 @@ export class DataManagerService {
         }
       });
   }
+
+  likeProject(project: Project): void {
+    this.projectsService.likeProject(project).subscribe((response) => {
+      response = Object.assign(new Project(), response);
+
+      let index = this.projects.findIndex((project) => project.getId == response.getId);
+      
+      this.projects[index] = response;
+      
+      this.observableData.next(true);
+    });
+  }
+
+  dislikeProject(project: Project): void {
+    this.projectsService.dislikeProject(project).subscribe((response) => {
+      response = Object.assign(new Project(), response);
+
+      let index = this.projects.findIndex((project) => project.getId == response.getId);
+
+      this.projects[index] = response;
+
+      this.observableData.next(true);
+    });
+  }
 }
