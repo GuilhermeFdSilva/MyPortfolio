@@ -10,6 +10,16 @@
     <img [src]="project.getImage" [alt]="project.getTitle">
   </section>
 
+  <section id="interactions">
+    <div id="likes">
+      <mat-icon (click)="toggleLike()">
+        {{ liked ? "favorite" : "favorite_border" }}
+      </mat-icon>
+      <p>{{ project.getLikes }}</p>
+    </div>
+    <!-- <mat-icon>message</mat-icon> -->
+  </section>
+
   <section id="readme" *ngIf="readmeContent !== ''">
     <div id="header-readme">
       <h3>README.md</h3>
