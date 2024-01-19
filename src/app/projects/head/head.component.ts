@@ -49,10 +49,13 @@ export class HeadComponent implements OnChanges {
   @HostListener('document:touch' , ['$event'])
   clickOutside(event: Event): void {
     let menuFilters = this.elementRef.nativeElement.querySelector('#filters');
+    let closeButtons = this.elementRef.nativeElement.querySelectorAll('.close');
     let containerFilters = this.elementRef.nativeElement.querySelector('#container-filters')
 
-    if (menuFilters && containerFilters) {
-      if(!menuFilters.contains(event.target)){
+    if (menuFilters && closeButtons && containerFilters) {
+      let buttonClicked = Array.from(closeButtons).some((button: any) => button.contains(event.target))
+
+      if(!menuFilters.contains(event.target) && !buttonClicked){
         if(containerFilters.classList.contains('visible')){
           this.toggleVisible();
         }
