@@ -9,15 +9,15 @@ export class ProjectsService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Project>> {
-    return this.httpClient.get<Array<Project>>('https://api.francaguilherme.com.br/projects');
+    return this.httpClient.get<Array<Project>>('https://api.francaguilherme.com.br/public/projects');
   }
  
   likeProject(project: Project): Observable<Project> {
-    return this.httpClient.put<Project>('https://api.francaguilherme.com.br/admin/projects/like', project);
+    return this.httpClient.put<Project>('https://api.francaguilherme.com.br/public/projects/like', project);
   }
 
   dislikeProject(project: Project): Observable<Project> {
-    return this.httpClient.put<Project>("https://api.francaguilherme.com.br/admin/projects/dislike", project);
+    return this.httpClient.put<Project>("https://api.francaguilherme.com.br/public/projects/dislike", project);
   }
 }
 

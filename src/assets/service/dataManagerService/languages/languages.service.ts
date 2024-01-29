@@ -9,7 +9,7 @@ export class LanguagesService {
   constructor(private httpClient: HttpClient) { }
 
   get getData(): Observable<Array<Language>> {
-    return this.httpClient.get<Array<Language>>('https://api.francaguilherme.com.br/languages');
+    return this.httpClient.get<Array<Language>>('https://api.francaguilherme.com.br/public/languages');
   }
 }
 
