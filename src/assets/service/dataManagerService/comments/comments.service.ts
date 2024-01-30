@@ -9,23 +9,23 @@ export class CommentsService {
   constructor(private httpClient: HttpClient) { }
 
   getCommentsByProjectId(project_id: number): Observable<Array<Comment>> {
-    return this.httpClient.get<Array<Comment>>(`http://localhost:8080/public/comments/${project_id}`);
+    return this.httpClient.get<Array<Comment>>(`https://api.francaguilherme.com.br/public/comments/${project_id}`);
   }
 
   voteUp(target: Comment): Observable<Comment>{
-    return this.httpClient.put<Comment>('http://localhost:8080/public/comment/up', target);
+    return this.httpClient.put<Comment>('https://api.francaguilherme.com.br/public/comment/up', target);
   }
 
   voteDown(target: Comment): Observable<Comment>{
-    return this.httpClient.put<Comment>('http://localhost:8080/public/comment/down', target);
+    return this.httpClient.put<Comment>('https://api.francaguilherme.com.br/public/comment/down', target);
   }
 
   removeVoteUp(target: Comment): Observable<Comment>{
-    return this.httpClient.put<Comment>('http://localhost:8080/public/comment/remove-up', target);
+    return this.httpClient.put<Comment>('https://api.francaguilherme.com.br/public/comment/remove-up', target);
   }
 
   removeVoteDown(target: Comment): Observable<Comment>{
-    return this.httpClient.put<Comment>('http://localhost:8080/public/comment/remove-down', target);
+    return this.httpClient.put<Comment>('https://api.francaguilherme.com.br/public/comment/remove-down', target);
   }
 }
 
