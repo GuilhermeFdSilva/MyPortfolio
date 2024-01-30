@@ -17,7 +17,7 @@
       </mat-icon>
       <p>{{ project.getLikes }}</p>
     </div>
-    <mat-icon>message</mat-icon>
+    <mat-icon class="disabled" (click)="comingSoon()">message</mat-icon>
   </section>
 
   <section id="readme" *ngIf="readmeContent !== ''">
@@ -34,3 +34,32 @@
     </section>
   </section>
 </article>
+
+<!-- <article id="comments">
+  <h3>Comentários</h3>
+
+
+  <section id="container-comments">
+    <div class="comment" *ngFor="let comment of comments, let i = index">
+      <div class="container-content">
+        <div class="votes">
+          <div class="up" (click)="voteUp(comment.obj, comment.votedUp)">
+            <mat-icon [ngClass]="comment.votedUp ? 'voted-up' : ''">keyboard_arrow_up</mat-icon>
+            <p>{{ comment.obj.getUp }}</p>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="down" (click)="voteDown(comment.obj, comment.votedDown)">
+            <p>{{ comment.obj.getDown }}</p>
+            <mat-icon [ngClass]="comment.votedDown ? 'voted-down' : ''">keyboard_arrow_down</mat-icon>
+          </div>
+        </div>
+        <div class="message">
+          <p class="msg-title">{{ comment.obj.getNick }}</p>
+          <p class="msg-content">{{ comment.obj.getMessage }}</p>
+        </div>
+      </div>
+
+      <mat-divider *ngIf="i !== comments.length - 1"></mat-divider>
+    </div>
+  </section>
+</article> -->

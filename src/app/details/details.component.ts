@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { marked } from 'marked';
 import { Project } from 'src/assets/service/dataManagerService/projects/projects.service';
 import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
+import { Comment } from 'src/assets/service/dataManagerService/comments/comments.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +14,7 @@ import { DataManagerService } from './../../assets/service/dataManagerService/da
 })
 export class DetailsComponent implements OnInit, AfterViewInit {
   project: Project = new Project();
+  comments: Array<any> = [];
   readmeContent: string | Promise<string>;
   liked: boolean = false;
 
@@ -19,7 +22,8 @@ export class DetailsComponent implements OnInit, AfterViewInit {
     private activatedRoute: ActivatedRoute,
     private dataManagerService: DataManagerService,
     private title: Title,
-    private elementRef: ElementRef) { }
+    private elementRef: ElementRef,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -37,7 +41,15 @@ export class DetailsComponent implements OnInit, AfterViewInit {
           this.readmeContent = readmeBase64 ? marked(readmeBase64): '';
 
           this.title.setTitle(this.project.getTitle ?? '');
+
+          this.dataManagerService.loadComments(Number.parseInt(id));
         }
+      });
+    });
+
+    this.dataManagerService.getObservableComments.subscribe(() => {
+      this.comments = this.dataManagerService.getComments.map((comment: Comment) => {
+        return {obj: comment, votedUp: false, votedDown: false};
       });
     });
   }
@@ -71,5 +83,27 @@ export class DetailsComponent implements OnInit, AfterViewInit {
 
   goTo(link: string) {
     window.open(link, '_blank');
+  }
+
+  scroll(id: string): void {
+    let target = document.getElementById(id);
+
+    if (target) {
+      target.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+
+  voteUp(comment: Comment, voted: boolean) {
+    this.dataManagerService.commentUpVote(comment, voted);
+  }
+
+  voteDown(comment: Comment, voted: boolean) {
+    this.dataManagerService.commentDownVote(comment, voted);
+  }
+
+  comingSoon() {
+    this.snackBar.open('Em breve!', "ok", {
+      duration: 3000
+    })
   }
 }

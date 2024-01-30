@@ -11,7 +11,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // Providers
 import { DataManagerService } from './../assets/service/dataManagerService/data-manager.service';
@@ -53,7 +55,8 @@ import { ListComponent } from './projects/list/list.component';
     MatIconModule,
     MatDividerModule,
     MatExpansionModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [DataManagerService],
   bootstrap: [AppComponent]

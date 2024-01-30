@@ -1,7 +1,7 @@
 @import '../../assets/css-variables/mainVariables.scss';
 
 #project-info {
-  padding: 50px 20px;
+  padding: 50px 20px 10px 20px;
 
   #title {
     h1 {
@@ -60,12 +60,12 @@
         color: $secondary-red;
         cursor: pointer;
         transition: all ease 0.3s;
-        
+
         &:hover {
           color: $primary-red;
         }
       }
-      
+
       p {
         font-family: $font-family;
         font-size: $font-normal-size;
@@ -73,7 +73,7 @@
         margin: 0;
       }
     }
-    
+
     mat-icon {
       width: $icon-size;
       height: $icon-size;
@@ -85,6 +85,10 @@
       &:hover {
         color: $primary-red;
       }
+    }
+
+    .disabled {
+      filter: grayscale(100%);
     }
   }
 
@@ -133,6 +137,128 @@
           background-color: $primary-red;
         }
       }
+    }
+  }
+}
+
+#comments {
+  padding: 20px;
+
+  h3 {
+    font-size: $font-large-size;
+    font-family: $font-family;
+    color: $primary-red;
+    letter-spacing: 10px;
+  }
+
+  #container-comments {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 50vh;
+    background-color: $low-black;
+    border: 1px solid $ternary-black;
+    border-radius: 5px;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background: $primary-red;
+      border: 2px solid $low-black;
+    }
+
+    .comment {
+      padding: 15px 20px 0 20px;
+
+      .container-content {
+        display: flex;
+        align-items: center;
+
+        .votes {
+          padding: 0 10px;
+          background-color: $ternary-black;
+          border-radius: 5px;
+
+          .up {
+            text-align: center;
+            margin-bottom: 5px;
+            cursor: pointer;
+
+            mat-icon {
+              height: $font-large-size;
+              width: $font-xlarge-size;
+              font-size: $font-xlarge-size;
+              color: $low-black;
+            }
+
+            p {
+              margin: 3px 0 0 0;
+              font-family: $font-family;
+              font-size: $font-min-size;
+              color: $green-vote;
+            }
+
+            .voted-up {
+              color: $green-vote;
+            }
+          }
+
+          mat-divider {
+            background-color: $primary-black;
+            width: 80%;
+            margin: auto;
+          }
+
+          .down {
+            text-align: center;
+            margin-top: 5px;
+            cursor: pointer;
+
+            mat-icon {
+              height: $font-large-size;
+              width: $font-xlarge-size;
+              font-size: $font-xlarge-size;
+              color: $low-black;
+            }
+
+            p {
+              margin: 0;
+              font-family: $font-family;
+              font-size: $font-min-size;
+              color: $secondary-red;
+            }
+
+            .voted-down {
+              color: $secondary-red;
+            }
+          }
+        }
+
+        .message {
+          padding: 0 20px;
+
+          .msg-title {
+            font-family: $font-family;
+            color: $secondary-black;
+            font-size: $font-normal-size;
+            font-weight: bold;
+          }
+
+          .msg-content {
+            font-family: $font-family;
+            color: $font-color;
+            font-size: $font-min-size;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    mat-divider {
+      margin-top: 15px;
+      background-color: $primary-black;
     }
   }
 }
