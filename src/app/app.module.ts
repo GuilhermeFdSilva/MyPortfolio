@@ -21,10 +21,6 @@ import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PresentationComponent } from './home/presentation/presentation.component';
-import { CategoriesComponent } from './home/categories/categories.component';
-import { HeadComponent } from './projects/head/head.component';
-import { ListComponent } from './projects/list/list.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +29,7 @@ import { ListComponent } from './projects/list/list.component';
     AsideMenuComponent,
     FooterComponent,
     HomeComponent,
-    DetailsComponent,
-    PresentationComponent,
-    CategoriesComponent,
-    HeadComponent,
-    ListComponent
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
