@@ -27,11 +27,5 @@
     </button>
 
     <mat-divider></mat-divider>
-
-    <!-- Linkis por linguagem -->
-    <button class="sub-item" *ngFor="let module of mainCategories" (click)="[goToProjects(module.getName), toggleMenu()]">
-      <img class="icon" [src]="module.getIcon" [alt]="module.getName">
-      <p>{{ module.getName }}</p>
-    </button>
   </nav>
 </aside>

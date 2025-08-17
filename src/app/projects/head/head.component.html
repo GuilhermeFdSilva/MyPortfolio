@@ -25,8 +25,6 @@
 
       <ul>
         <article *ngFor="let filter of languagesFilter, let i = index">
-          <div [ngClass]="[filter.language.getType == category.category ? '' : 'display-none',
-                        (filter.match || filter.active) ? '' : 'disabled']" (click)="toggleActive(filter.language)">
             <div class="internal-container">
               <div class="container-check">
                 <mat-icon *ngIf="filter.active">check</mat-icon>
@@ -34,18 +32,8 @@
               </div>
               <img [src]="filter.language.getStick" [alt]="filter.language.getName">
             </div>
-          </div>
         </article>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- Linguagem principal selecionada -->
-<section id="main-filters" *ngIf="mainLanguages.length > 0">
-  <div class="main-languages" *ngFor="let mainLanguage of mainLanguages, let i = index" [ngClass]="i === 0 ? 'border-top' : ''">
-    <h2>{{ mainLanguage.getName }}</h2>
-    <p>{{ mainLanguage.getDesc }}</p>
-    <mat-icon class="main-language-close" (click)="toggleActive(mainLanguage)">close</mat-icon>
   </div>
 </section>

@@ -1,14 +1,12 @@
 import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
-import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
-import { DataManagerService } from './../../assets/service/dataManagerService/data-manager.service';
 
 @Component({
   selector: 'app-aside-menu',
   templateUrl: './aside-menu.component.html',
   styleUrls: ['./aside-menu.component.scss']
 })
-export class AsideMenuComponent implements OnInit {
+export class AsideMenuComponent {
   mainLinks: any[] = [
     {
       link: 'https://www.linkedin.com/in/guilherme-fran%C3%A7a-da-silva-4756a8155',
@@ -31,17 +29,8 @@ export class AsideMenuComponent implements OnInit {
       description: 'Curriculo'
     }
   ];
-  mainCategories: Array<Language> = [];
 
-  constructor(private dataManagerService: DataManagerService, private router: Router, private elementRef: ElementRef) { }
-
-  ngOnInit(): void {
-    this.dataManagerService.getObservableData.subscribe((loaded) => {
-      if (loaded) {
-        this.mainCategories = this.dataManagerService.getLanguages.filter((language) => language.isMain);
-      }
-    });
-  }
+  constructor(private router: Router, private elementRef: ElementRef) { }
 
   @HostListener('document:click', ['$event'])
   @HostListener('document:touch', ['$event'])

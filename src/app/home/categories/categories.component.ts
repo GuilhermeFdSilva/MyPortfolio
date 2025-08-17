@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 
 @Component({
   selector: 'app-categories',
@@ -8,8 +7,6 @@ import { Language } from 'src/assets/service/dataManagerService/languages/langua
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent {
-  @Input() mainCategories: Array<Language> = [];
-
   constructor(private router: Router) { }
   
   goToProjects(name: string): void {

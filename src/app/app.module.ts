@@ -15,14 +15,10 @@ import { MatCardModule } from '@angular/material/card';
 
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-// Providers
-import { DataManagerService } from './../assets/service/dataManagerService/data-manager.service';
-
 // Componentes
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ContainerRouterComponent } from './container-router/container-router.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { DetailsComponent } from './details/details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PresentationComponent } from './home/presentation/presentation.component';
@@ -37,7 +33,6 @@ import { ListComponent } from './projects/list/list.component';
     AsideMenuComponent,
     FooterComponent,
     HomeComponent,
-    ProjectsComponent,
     DetailsComponent,
     PresentationComponent,
     CategoriesComponent,
@@ -58,7 +53,7 @@ import { ListComponent } from './projects/list/list.component';
     MatCardModule,
     MatSnackBarModule
   ],
-  providers: [DataManagerService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

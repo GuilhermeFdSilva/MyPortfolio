@@ -9,23 +9,10 @@
   <div id="container-categories">
     <!-- Navegação -->
     <nav>
-      <div class="item-button" *ngFor="let mainCategory of mainCategories" (click)="scroll(mainCategory.getName)">
-        <img [src]="mainCategory.getIcon" [alt]="mainCategory.getName">
         <mat-divider></mat-divider>
-      </div>
     </nav>
 
     <section id="itens">
-
-      <div [id]="mainCategory.getName" *ngFor="let mainCategory of mainCategories, let i = index">
-        <div class="item-title">
-          <img [src]="mainCategory.getIcon" [alt]="mainCategory.getName">
-          <h2>{{ mainCategory.getName }}</h2>
-        </div>
-        <p>{{mainCategory.getDesc}}</p>
-        <button (click)="goToProjects(mainCategory.getName)">Meus projetos {{ mainCategory.getName }}</button>
-        <mat-divider *ngIf="i < mainCategories.length - 1"></mat-divider>
-      </div>
     </section>
   </div>
 </article>

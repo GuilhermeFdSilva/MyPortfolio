@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Language } from 'src/assets/service/dataManagerService/languages/languages.service';
 
 @Component({
   selector: 'app-presentation',
@@ -7,10 +6,6 @@ import { Language } from 'src/assets/service/dataManagerService/languages/langua
   styleUrls: ['./presentation.component.scss']
 })
 export class PresentationComponent {
-  @Input() languages: Array<Language> = [];
-  @Input() frontEnd: Array<Language> = [];
-  @Input() database: Array<Language> = [];
-
   @Output() goTo = new EventEmitter<any>();
 
   stackLocation: string = window.innerWidth > 800 ? 'ao lado' : 'abaixo';

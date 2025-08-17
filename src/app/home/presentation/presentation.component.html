@@ -33,25 +33,16 @@
     <!-- Lista de linguagens de programação -->
     <p class="sub-title">Linguagens:</p>
     <ul id="languages-list">
-      <li *ngFor="let language of languages">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
-      </li>
     </ul>
 
     <!-- Lista de ferramentas de front -->
     <p class="sub-title">Desenvolvimento Front-end:</p>
     <ul id="languages-list">
-      <li *ngFor="let language of frontEnd">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
-      </li>
     </ul>
 
     <!-- Lista de bancos de dados -->
     <p class="sub-title">Banco de dados:</p>
     <ul id="languages-list">
-      <li *ngFor="let language of database">
-        <img [src]="language.getStick" [alt]="language.getName" (click)="navigate(language.getLink)">
-      </li>
     </ul>
   </section>
 </article>
